@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "OtherLifeFarm",
+			"Path": "..\\Source\\OtherLifeFarm.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "OtherLifeFarmEditor",
+			"Path": "..\\Source\\OtherLifeFarmEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

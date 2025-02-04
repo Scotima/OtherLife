@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\unrealeditor\\inc\\otherlifefarm\\uht\\otherlifefarmgamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\x64\\otherlifefarmeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\otherlifefarm\\definitions.otherlifefarm.h",
+            "d:\\seoulgameaca\\otherlife\\otherlifefarm\\source\\otherlifefarm\\otherlifefarmgamemode.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\unrealeditor\\inc\\otherlifefarm\\uht\\otherlifefarmgamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

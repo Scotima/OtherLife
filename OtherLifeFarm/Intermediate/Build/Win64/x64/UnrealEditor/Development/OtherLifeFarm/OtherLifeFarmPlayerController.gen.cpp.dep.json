@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\unrealeditor\\inc\\otherlifefarm\\uht\\otherlifefarmplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\x64\\otherlifefarmeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\otherlifefarm\\definitions.otherlifefarm.h",
+            "d:\\seoulgameaca\\otherlife\\otherlifefarm\\source\\otherlifefarm\\otherlifefarmplayercontroller.h",
+            "d:\\seoulgameaca\\otherlife\\otherlifefarm\\intermediate\\build\\win64\\unrealeditor\\inc\\otherlifefarm\\uht\\otherlifefarmplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
