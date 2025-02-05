@@ -18,11 +18,12 @@ ACCharacter::ACCharacter()
 	GetMesh()->SetRelativeLocation(FVector(0, 0, -88));
 	GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
 
-	ConstructorHelpers::FClassFinder<UAnimationAsset>AnimInstanceClass(TEXT("/Game/Characters/Mannequins/Animations/ABP_Manny"));
+	ConstructorHelpers::FClassFinder<UAnimInstance> AnimInstanceClass(TEXT("/Game/Characters/Mannequins/Animations/ABP_Manny"));
 	if (AnimInstanceClass.Succeeded())
 	{
 		GetMesh()->SetAnimInstanceClass(AnimInstanceClass.Class);
 	}
+
 
 
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
