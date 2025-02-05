@@ -11,6 +11,8 @@
     <None Include="..\..\Source\OtherLifeFarmEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitignore" />
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -58,6 +60,24 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\OtherLifeFarmPlayerController.h">
       <Filter>Source\OtherLifeFarm</Filter>
+    </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\FarmCharacter">
+      <UniqueIdentifier>{073C646A-54E5-3586-8B25-DA51863D9387}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CCharacter.cpp">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CCharacter.h">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\GameMode">
+      <UniqueIdentifier>{208E3053-5D91-3798-ACAB-57A8B06D6F52}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\GameMode\MyGameModeBase.cpp">
+      <Filter>Source\OtherLifeFarm\GameMode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\GameMode\MyGameModeBase.h">
+      <Filter>Source\OtherLifeFarm\GameMode</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
