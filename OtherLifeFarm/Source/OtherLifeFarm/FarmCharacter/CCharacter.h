@@ -7,6 +7,8 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class ACRake;
+
 UCLASS()
 class OTHERLIFEFARM_API ACCharacter : public ACharacter
 {
@@ -34,6 +36,12 @@ protected:
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
 	UCameraComponent* CameraComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Tools")
+	TSubclassOf<ACRake> RakeClass;
+
+private:
+	ACRake* Rake;
 	
 
 };
