@@ -79,5 +79,14 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\GameMode\MyGameModeBase.h">
       <Filter>Source\OtherLifeFarm\GameMode</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\Tools">
+      <UniqueIdentifier>{F6C0E4BE-7050-3276-B68E-A8CF12187A79}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Tools\CRake.cpp">
+      <Filter>Source\OtherLifeFarm\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Tools\CRake.h">
+      <Filter>Source\OtherLifeFarm\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
