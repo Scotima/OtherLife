@@ -1,12 +1,13 @@
 
 #pragma once
-
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "CCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
+class ACRake;
+
 UCLASS()
 class OTHERLIFEFARM_API ACCharacter : public ACharacter
 {
@@ -27,6 +28,8 @@ private:
 	void MoveForward(float value);
 	void MoveRight(float value);
 
+	void MouseLeft();
+
 
 protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
@@ -34,6 +37,14 @@ protected:
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
 	UCameraComponent* CameraComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Tools")
+	TSubclassOf<ACRake> RakeClass;
+
+
+public:
+	UPROPERTY(BlueprintReadWrite, Category = "Tools")
+	ACRake* Rake;
 	
 
 };

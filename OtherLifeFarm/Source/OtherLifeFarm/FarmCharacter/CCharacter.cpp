@@ -4,6 +4,7 @@
 #include "Camera/CameraComponent.h"	
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Tools/CRake.h"
 
 ACCharacter::ACCharacter()
 {
@@ -24,6 +25,12 @@ ACCharacter::ACCharacter()
 		GetMesh()->SetAnimInstanceClass(AnimInstanceClass.Class);
 	}
 
+	ConstructorHelpers::FClassFinder<ACRake> ToolClass(TEXT("/Game/FarmGame/Tools/BP_Rake"));
+
+	if (ToolClass.Succeeded())
+	{
+		RakeClass = ToolClass.Class;
+	}
 
 
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
@@ -49,6 +56,14 @@ ACCharacter::ACCharacter()
 void ACCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (RakeClass)
+	{
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.Owner = this;
+		Rake = GetWorld()->SpawnActor<ACRake>(RakeClass, SpawnParams);
+
+	}
 	
 }
 
@@ -64,6 +79,8 @@ void ACCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACCharacter::MoveRight);
+
+	PlayerInputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACCharacter::MouseLeft);
 }
 
 void ACCharacter::MoveForward(float value)
@@ -80,5 +97,13 @@ void ACCharacter::MoveRight(float value)
 	FVector Direction = FQuat(ControlRot).GetRightVector().GetSafeNormal2D();
 
 	AddMovementInput(Direction, value);
+}
+
+void ACCharacter::MouseLeft()
+{
+	if (Rake && Rake->bPlayerAnimation)
+	{
+		Rake->Plowing();
+	}
 }
 
