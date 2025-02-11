@@ -29,6 +29,8 @@ private:
 	void MoveForward(float value);
 	void MoveRight(float value);
 
+	void OpenWindowSkill();
+
 	void MouseLeft();
 
 	void SetCustomMouseCursor();
@@ -47,9 +49,13 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Cursor")
 	TSubclassOf<UUserWidget> CursorWidgetClass;
 
+	UPROPERTY(VisibleDefaultsOnly, Category = "UI")
+	TSubclassOf<UUserWidget> SkillWindowClass;
+
 private:
 
-
+	UPROPERTY()
+	UUserWidget* SkillWindowWidget;
 
 public:
 	UPROPERTY(BlueprintReadWrite, Category = "Tools")

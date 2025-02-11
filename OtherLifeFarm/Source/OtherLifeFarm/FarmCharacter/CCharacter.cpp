@@ -39,6 +39,13 @@ ACCharacter::ACCharacter()
 	{
 		CursorWidgetClass = CursorWidgetAsset.Class;
 	}
+
+	ConstructorHelpers::FClassFinder<UUserWidget> SkillWindowAsset(TEXT("/Game/FarmGame/UI/WG_OpenSkillWindow"));
+
+	if (SkillWindowAsset.Succeeded())
+	{
+		SkillWindowClass = SkillWindowAsset.Class;
+	}
 	
 
 
@@ -75,6 +82,11 @@ void ACCharacter::BeginPlay()
 		Rake = GetWorld()->SpawnActor<ACRake>(RakeClass, SpawnParams);
 
 	}
+	if (SkillWindowClass)
+	{
+		SkillWindowWidget = CreateWidget<UUserWidget>(GetWorld(), SkillWindowClass);
+
+	}
 	
 }
 
@@ -92,6 +104,7 @@ void ACCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACCharacter::MoveRight);
 
 	PlayerInputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACCharacter::MouseLeft);
+	PlayerInputComponent->BindAction("OpenSkillWindow", IE_Pressed, this, &ACCharacter::OpenWindowSkill);
 }
 
 void ACCharacter::MoveForward(float value)
@@ -108,6 +121,25 @@ void ACCharacter::MoveRight(float value)
 	FVector Direction = FQuat(ControlRot).GetRightVector().GetSafeNormal2D();
 
 	AddMovementInput(Direction, value);
+}
+
+void ACCharacter::OpenWindowSkill()
+{
+	if (SkillWindowWidget)
+	{
+		bool IsVisible = SkillWindowWidget->IsInViewport();
+
+		if (IsVisible)
+		{
+			SkillWindowWidget->RemoveFromViewport();
+			Rake->bPlayerAnimation = true;
+		}
+		else
+		{
+			SkillWindowWidget->AddToViewport();
+			Rake->bPlayerAnimation = false;
+		}
+	}
 }
 
 void ACCharacter::MouseLeft()
