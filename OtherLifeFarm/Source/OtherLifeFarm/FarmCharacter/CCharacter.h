@@ -29,11 +29,14 @@ private:
 	void MoveForward(float value);
 	void MoveRight(float value);
 
-	void OpenWindowSkill();
 
 	void MouseLeft();
 
 	void SetCustomMouseCursor();
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	void OpenWindowSkill();
 
 
 protected:
@@ -61,5 +64,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Tools")
 	ACRake* Rake;
 	
+	UPROPERTY(BlueprintReadWrite, Category = "UI")
+	bool IsVisible;
 
+	
 };

@@ -127,7 +127,7 @@ void ACCharacter::OpenWindowSkill()
 {
 	if (SkillWindowWidget)
 	{
-		bool IsVisible = SkillWindowWidget->IsInViewport();
+		IsVisible = SkillWindowWidget->IsInViewport();
 
 		if (IsVisible)
 		{

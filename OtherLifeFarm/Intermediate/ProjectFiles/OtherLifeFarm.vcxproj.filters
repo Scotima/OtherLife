@@ -79,6 +79,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\GameMode\MyGameModeBase.h">
       <Filter>Source\OtherLifeFarm\GameMode</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\GhostGrain">
+      <UniqueIdentifier>{35276DAA-DAFF-3EAD-857D-EA55EE576E40}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\GhostGrain\CGhostRice.cpp">
+      <Filter>Source\OtherLifeFarm\GhostGrain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\GhostGrain\CGhostRice.h">
+      <Filter>Source\OtherLifeFarm\GhostGrain</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Grain">
       <UniqueIdentifier>{D52684CF-F16B-32ED-A1F4-A9A37ECDF29F}</UniqueIdentifier>
     </Filter>
