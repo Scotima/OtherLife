@@ -7,6 +7,7 @@
 class USpringArmComponent;
 class UCameraComponent;
 class ACRake;
+class UUserWidget;
 
 UCLASS()
 class OTHERLIFEFARM_API ACCharacter : public ACharacter
@@ -30,6 +31,8 @@ private:
 
 	void MouseLeft();
 
+	void SetCustomMouseCursor();
+
 
 protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
@@ -40,6 +43,12 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Tools")
 	TSubclassOf<ACRake> RakeClass;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = "Cursor")
+	TSubclassOf<UUserWidget> CursorWidgetClass;
+
+private:
+
 
 
 public:

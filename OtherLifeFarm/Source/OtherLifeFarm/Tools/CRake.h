@@ -53,6 +53,8 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Socket");
 	FName HandSocket;
 
+
+
 private:
 	ACharacter* OwnerCharacter;
 

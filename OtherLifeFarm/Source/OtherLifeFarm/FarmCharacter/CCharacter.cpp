@@ -5,6 +5,7 @@
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Tools/CRake.h"
+#include "Blueprint/UserWidget.h"
 
 ACCharacter::ACCharacter()
 {
@@ -32,6 +33,14 @@ ACCharacter::ACCharacter()
 		RakeClass = ToolClass.Class;
 	}
 
+	ConstructorHelpers::FClassFinder<UUserWidget> CursorWidgetAsset(TEXT("/Game/FarmGame/UI/WG_MouseCursor"));
+
+	if (CursorWidgetAsset.Succeeded())
+	{
+		CursorWidgetClass = CursorWidgetAsset.Class;
+	}
+	
+
 
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
 	SpringArmComp->SetupAttachment(GetCapsuleComponent());
@@ -56,6 +65,8 @@ ACCharacter::ACCharacter()
 void ACCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	SetCustomMouseCursor();
 
 	if (RakeClass)
 	{
@@ -104,6 +115,35 @@ void ACCharacter::MouseLeft()
 	if (Rake && Rake->bPlayerAnimation)
 	{
 		Rake->Plowing();
+	}
+}
+
+void ACCharacter::SetCustomMouseCursor()
+{
+	APlayerController* PlayerController = GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr;
+
+	if (!PlayerController)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("PlayerController is nullptr"));
+		return;
+	}
+
+	if (CursorWidgetClass)
+	{
+		UUserWidget* CursorWidget = CreateWidget<UUserWidget>(GetWorld(), CursorWidgetClass);
+
+		if (CursorWidget)
+		{
+			PlayerController->SetMouseCursorWidget(EMouseCursor::Default, CursorWidget);
+			PlayerController->bShowMouseCursor = true;
+
+			UE_LOG(LogTemp, Log, TEXT("Custom mouse cursor set."));
+		}
+	}
+
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Custom Cursor WidgetAsset is null"));
 	}
 }
 
