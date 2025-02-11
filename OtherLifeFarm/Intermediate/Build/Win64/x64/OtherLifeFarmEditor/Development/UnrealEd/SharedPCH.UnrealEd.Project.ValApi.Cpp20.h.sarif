@@ -10,13 +10,13 @@
                         "text": "'FBoneMirrorInfo': FBoneMirrorInfo is deprecated. Please use UMirrorDataTable for mirroring support. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile."
                     },
                     "analysisTarget": {
-                        "uri": "file:///C:/KMK/OtherLife/OtherLifeFarm/Intermediate/Build/Win64/x64/OtherLifeFarmEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.Cpp20.cpp"
+                        "uri": "file:///D:/SeoulGameAca/OtherLife/OtherLifeFarm/Intermediate/Build/Win64/x64/OtherLifeFarmEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.Cpp20.cpp"
                     },
                     "locations": [
                         {
                             "physicalLocation": {
                                 "artifactLocation": {
-                                    "uri": "file:///D:/U551/UE_5.5/Engine/Source/Runtime/Engine/Classes/Engine/SkeletalMesh.h"
+                                    "uri": "file:///C:/Program Files/Epic Games/UE_5.5/Engine/Source/Runtime/Engine/Classes/Engine/SkeletalMesh.h"
                                 },
                                 "region": {
                                     "startLine": 940,

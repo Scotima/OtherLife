@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\KMK\\OtherLife\\OtherLifeFarm\\Source\\OtherLifeFarm\\OtherLifeFarm.Build.cs",
-		"C:\\KMK\\OtherLife\\OtherLifeFarm\\Source\\OtherLifeFarm.Target.cs",
-		"C:\\KMK\\OtherLife\\OtherLifeFarm\\Source\\OtherLifeFarmEditor.Target.cs"
+		"D:\\SeoulGameAca\\OtherLife\\OtherLifeFarm\\Source\\OtherLifeFarm\\OtherLifeFarm.Build.cs",
+		"D:\\SeoulGameAca\\OtherLife\\OtherLifeFarm\\Source\\OtherLifeFarm.Target.cs",
+		"D:\\SeoulGameAca\\OtherLife\\OtherLifeFarm\\Source\\OtherLifeFarmEditor.Target.cs"
 	],
-	"EngineVersion": "5.5.3"
+	"EngineVersion": "5.5.2"
 }
