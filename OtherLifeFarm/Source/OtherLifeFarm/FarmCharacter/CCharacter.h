@@ -38,6 +38,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void OpenWindowSkill();
 
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	void OpenInventory();
+
 
 protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
@@ -55,10 +58,15 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "UI")
 	TSubclassOf<UUserWidget> SkillWindowClass;
 
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<class UCInventory> CInventoryClass;
+
 private:
 
 	UPROPERTY()
 	UUserWidget* SkillWindowWidget;
+
+	UCInventory* CInventoryWidget;
 
 public:
 	UPROPERTY(BlueprintReadWrite, Category = "Tools")

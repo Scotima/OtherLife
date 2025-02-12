@@ -6,6 +6,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Tools/CRake.h"
 #include "Blueprint/UserWidget.h"
+#include "Inventory/CInventory.h"
 
 ACCharacter::ACCharacter()
 {
@@ -87,6 +88,17 @@ void ACCharacter::BeginPlay()
 		SkillWindowWidget = CreateWidget<UUserWidget>(GetWorld(), SkillWindowClass);
 
 	}
+
+	if (CInventoryClass)
+	{
+		CInventoryWidget = CreateWidget<UCInventory>(GetWorld(), CInventoryClass);
+
+		if (CInventoryWidget)
+		{
+			CInventoryWidget->AddToViewport();
+			CInventoryWidget->SetVisibility(ESlateVisibility::Hidden);
+		}
+	}
 	
 }
 
@@ -105,6 +117,7 @@ void ACCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	PlayerInputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACCharacter::MouseLeft);
 	PlayerInputComponent->BindAction("OpenSkillWindow", IE_Pressed, this, &ACCharacter::OpenWindowSkill);
+	PlayerInputComponent->BindAction("OpenInventory", IE_Pressed, this, &ACCharacter::OpenInventory);
 }
 
 void ACCharacter::MoveForward(float value)
@@ -138,6 +151,25 @@ void ACCharacter::OpenWindowSkill()
 		{
 			SkillWindowWidget->AddToViewport();
 			Rake->bPlayerAnimation = false;
+		}
+	}
+}
+
+void ACCharacter::OpenInventory()
+{
+	if (CInventoryWidget)
+	{
+		if (CInventoryWidget->GetInventoryOpen() == false)
+		{
+			CInventoryWidget->SetInventoryOpen(true);
+			CInventoryWidget->ToggleInventory();
+
+		}
+
+		if (CInventoryWidget->GetInventoryOpen()== true)
+		{
+			CInventoryWidget->SetInventoryOpen(false);
+			CInventoryWidget->ToggleInventory();
 		}
 	}
 }
