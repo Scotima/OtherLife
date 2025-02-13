@@ -47,6 +47,13 @@ ACCharacter::ACCharacter()
 	{
 		SkillWindowClass = SkillWindowAsset.Class;
 	}
+
+	ConstructorHelpers::FClassFinder<UCInventory> InventoryWidget(TEXT("/Game/FarmGame/UI/WG_INVENTORY"));
+
+	if (InventoryWidget.Succeeded())
+	{
+		CInventoryClass = InventoryWidget.Class;
+	}
 	
 
 
@@ -98,6 +105,11 @@ void ACCharacter::BeginPlay()
 			CInventoryWidget->AddToViewport();
 			CInventoryWidget->SetVisibility(ESlateVisibility::Hidden);
 		}
+	}
+
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CInventoryClass is none!"));
 	}
 	
 }
@@ -159,18 +171,7 @@ void ACCharacter::OpenInventory()
 {
 	if (CInventoryWidget)
 	{
-		if (CInventoryWidget->GetInventoryOpen() == false)
-		{
-			CInventoryWidget->SetInventoryOpen(true);
-			CInventoryWidget->ToggleInventory();
-
-		}
-
-		if (CInventoryWidget->GetInventoryOpen()== true)
-		{
-			CInventoryWidget->SetInventoryOpen(false);
-			CInventoryWidget->ToggleInventory();
-		}
+		CInventoryWidget->ToggleInventory();
 	}
 }
 
