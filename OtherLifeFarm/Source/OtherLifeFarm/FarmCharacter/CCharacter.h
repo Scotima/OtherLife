@@ -2,12 +2,14 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Inventory/FItemStruct.h"
 #include "CCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
 class ACRake;
 class UUserWidget;
+class UCManageInventory;
 
 UCLASS()
 class OTHERLIFEFARM_API ACCharacter : public ACharacter
@@ -41,6 +43,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void OpenInventory();
 
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	void PickupItem(FItemStruct NewItem);
+
 
 protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
@@ -61,12 +66,18 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "UI")
 	TSubclassOf<class UCInventory> CInventoryClass;
 
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<class UCManageInventory> InventoryWidgetClass;
+
 private:
 
 	UPROPERTY()
 	UUserWidget* SkillWindowWidget;
 
 	UCInventory* CInventoryWidget;
+
+	UPROPERTY()
+	UCManageInventory* ManageInventoryWidget;
 
 public:
 	UPROPERTY(BlueprintReadWrite, Category = "Tools")

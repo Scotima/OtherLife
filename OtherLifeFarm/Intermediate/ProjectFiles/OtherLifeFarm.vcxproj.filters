@@ -106,6 +106,24 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CInventory.h">
       <Filter>Source\OtherLifeFarm\Inventory</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CItemWidget.cpp">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CItemWidget.h">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CManageInventory.cpp">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CManageInventory.h">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\FItemStruct.cpp">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\FItemStruct.h">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Tools">
       <UniqueIdentifier>{F6C0E4BE-7050-3276-B68E-A8CF12187A79}</UniqueIdentifier>
     </Filter>

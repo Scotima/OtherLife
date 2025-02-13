@@ -7,6 +7,7 @@
 #include "Tools/CRake.h"
 #include "Blueprint/UserWidget.h"
 #include "Inventory/CInventory.h"
+#include "Inventory/CManageInventory.h"
 
 ACCharacter::ACCharacter()
 {
@@ -111,6 +112,14 @@ void ACCharacter::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("CInventoryClass is none!"));
 	}
+
+	{
+		ManageInventoryWidget = CreateWidget<UCManageInventory>(GetWorld(), InventoryWidgetClass);
+		if (ManageInventoryWidget)
+		{
+			ManageInventoryWidget->SetVisibility(ESlateVisibility::Hidden);
+		}
+	}
 	
 }
 
@@ -172,6 +181,14 @@ void ACCharacter::OpenInventory()
 	if (CInventoryWidget)
 	{
 		CInventoryWidget->ToggleInventory();
+	}
+}
+
+void ACCharacter::PickupItem(FItemStruct NewItem)
+{
+	if (ManageInventoryWidget)
+	{
+		ManageInventoryWidget->AddItem(NewItem);
 	}
 }
 
