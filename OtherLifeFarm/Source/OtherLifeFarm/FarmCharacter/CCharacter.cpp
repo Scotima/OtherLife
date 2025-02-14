@@ -7,7 +7,7 @@
 #include "Tools/CRake.h"
 #include "Blueprint/UserWidget.h"
 #include "Inventory/CInventory.h"
-#include "Inventory/CManageInventory.h"
+#include "Inventory/CItemWidget.h"
 
 ACCharacter::ACCharacter()
 {
@@ -114,7 +114,7 @@ void ACCharacter::BeginPlay()
 	}
 
 	{
-		ManageInventoryWidget = CreateWidget<UCManageInventory>(GetWorld(), InventoryWidgetClass);
+		ManageInventoryWidget = CreateWidget<UCItemWidget>(GetWorld(), InventoryWidgetClass);
 		if (ManageInventoryWidget)
 		{
 			ManageInventoryWidget->SetVisibility(ESlateVisibility::Hidden);
@@ -188,7 +188,8 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 {
 	if (ManageInventoryWidget)
 	{
-		ManageInventoryWidget->AddItem(NewItem);
+		UE_LOG(LogTemp, Warning, TEXT("PickUpItem Success"));
+		ManageInventoryWidget->SetItemData(NewItem);
 	}
 }
 

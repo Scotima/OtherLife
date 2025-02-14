@@ -10,6 +10,7 @@ void UCManageInventory::NativeConstruct()
 
 void UCManageInventory::AddItem(FItemStruct NewItem)
 {
+	UE_LOG(LogTemp, Warning, TEXT("AddItem Success"));
 	InventoryItems.Add(NewItem);
 	UpdateUI();
 }
@@ -25,6 +26,8 @@ void UCManageInventory::RemoveItem(int32 Index)
 
 void UCManageInventory::UpdateUI()
 {
+	UE_LOG(LogTemp, Warning, TEXT("UpdateUI Success"));
+
 	for (UWidget* Widget : ItemWidgetList)
 	{
 		Widget->RemoveFromParent();
@@ -37,6 +40,7 @@ void UCManageInventory::UpdateUI()
 
 		if (NewItemWidget)
 		{
+			UE_LOG(LogTemp, Warning, TEXT("NewItemWidget is not null"));
 			NewItemWidget->SetItemData(Item);
 			InventoryPanel->AddChild(NewItemWidget);
 			ItemWidgetList.Add(NewItemWidget);

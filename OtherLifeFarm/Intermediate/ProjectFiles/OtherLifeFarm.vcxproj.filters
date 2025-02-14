@@ -124,6 +124,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\FItemStruct.h">
       <Filter>Source\OtherLifeFarm\Inventory</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\Items">
+      <UniqueIdentifier>{DACCA327-71A8-30FB-BA8E-E3C4B54BFAD4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Items\CItem.cpp">
+      <Filter>Source\OtherLifeFarm\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Items\CItem.h">
+      <Filter>Source\OtherLifeFarm\Items</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Tools">
       <UniqueIdentifier>{F6C0E4BE-7050-3276-B68E-A8CF12187A79}</UniqueIdentifier>
     </Filter>

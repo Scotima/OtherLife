@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+
 #include "FItemStruct.generated.h"
 
 USTRUCT(BlueprintType)
@@ -18,6 +19,8 @@ public:
 
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite)
 	int32 ItemCount;
+
+	
 
 	FItemStruct()
 	{

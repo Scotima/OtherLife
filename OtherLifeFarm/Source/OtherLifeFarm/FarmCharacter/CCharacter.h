@@ -67,7 +67,7 @@ protected:
 	TSubclassOf<class UCInventory> CInventoryClass;
 
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "UI")
-	TSubclassOf<class UCManageInventory> InventoryWidgetClass;
+	TSubclassOf<class UCItemWidget> InventoryWidgetClass;
 
 private:
 
@@ -77,7 +77,7 @@ private:
 	UCInventory* CInventoryWidget;
 
 	UPROPERTY()
-	UCManageInventory* ManageInventoryWidget;
+	UCItemWidget* ManageInventoryWidget;
 
 public:
 	UPROPERTY(BlueprintReadWrite, Category = "Tools")
