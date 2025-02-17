@@ -29,7 +29,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
 		bool bFromSweep, const FHitResult& SweepResult);
@@ -39,7 +39,7 @@ public:
 	UPROPERTY(EditAnyWhere, Category = "Item")
 	UStaticMeshComponent* ItemMesh;
 
-	UPROPERTY(EditAnyWhere, Category = "Item")
+	UPROPERTY(EditAnyWhere,BlueprintReadWrite, Category = "Item")
 	FItemStruct ItemData;
 	
 

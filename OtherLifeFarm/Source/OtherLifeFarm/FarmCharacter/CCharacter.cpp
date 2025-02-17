@@ -56,6 +56,12 @@ ACCharacter::ACCharacter()
 		CInventoryClass = InventoryWidget.Class;
 	}
 	
+	ConstructorHelpers::FClassFinder<UCItemWidget> ItemWidgetAsset(TEXT("/Game/FarmGame/UI/BP_ItemWidget"));
+
+	if (ItemWidgetAsset.Succeeded())
+	{
+		InventoryWidgetClass = ItemWidgetAsset.Class;
+	}
 
 
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
@@ -113,13 +119,16 @@ void ACCharacter::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("CInventoryClass is none!"));
 	}
 
+	if (InventoryWidgetClass)
 	{
 		ManageInventoryWidget = CreateWidget<UCItemWidget>(GetWorld(), InventoryWidgetClass);
 		if (ManageInventoryWidget)
 		{
-			ManageInventoryWidget->SetVisibility(ESlateVisibility::Hidden);
+			ManageInventoryWidget->SetVisibility(ESlateVisibility::Visible);
 		}
+
 	}
+		
 	
 }
 
@@ -189,7 +198,22 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 	if (ManageInventoryWidget)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PickUpItem Success"));
-		ManageInventoryWidget->SetItemData(NewItem);
+
+		// 새로운 아이템 위젯 생성
+		UCItemWidget* NewItemWidget = CreateWidget<UCItemWidget>(GetWorld(), ManageInventoryWidget->GetClass());
+		if (NewItemWidget)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("NewItemWidget created successfully!"));
+			// 아이템 데이터 설정
+			NewItemWidget->SetItemData(NewItem);
+
+			// 인벤토리 패널에 추가
+			ManageInventoryWidget->AddChildToPanel(NewItemWidget);
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("NewItemWidget is nullptr!"));
+		}
 	}
 }
 

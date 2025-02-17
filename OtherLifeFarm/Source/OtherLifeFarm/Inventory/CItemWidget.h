@@ -5,23 +5,34 @@
 #include "FItemStruct.h"
 #include "CItemWidget.generated.h"
 
-
+class UTextBlock;
+class UImage;
+class UPanelWidget;
 UCLASS()
 class OTHERLIFEFARM_API UCItemWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
 public:
+
+	void NativeConstruct();
 	UFUNCTION(BlueprintCallable)
 	void SetItemData(const FItemStruct& ItemData);
 
+	UFUNCTION(BlueprintCallable)
+	void AddChildToPanel(UWidget* Widget);
+
 protected:
-	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* ItemNameText;
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UTextBlock* ItemNameText;
 
-	UPROPERTY(meta = (BindWidget))
-	class UImage* ItemIconImage;
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UImage* ItemIconImage;
 
-	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* ItemCountText;
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UTextBlock* ItemCountText;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UPanelWidget* ItemPanel;
 };
+
