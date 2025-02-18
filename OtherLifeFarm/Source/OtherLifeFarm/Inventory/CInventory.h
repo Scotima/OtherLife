@@ -3,6 +3,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "CItemWidget.h"
 #include "CInventory.generated.h"
 
 
@@ -19,6 +20,14 @@ public:
 
 	bool GetInventoryOpen() { return bIsInventoryOpen; }
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory")
+	TArray<UCItemWidget*> Itemarray;
+
+	void SetInven(int32 index, FItemStruct data)
+	{
+		
+		Itemarray[index]->SetItemData(data);
+	}
 protected:
 	virtual void NativeConstruct() override;
 

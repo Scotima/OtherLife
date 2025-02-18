@@ -197,23 +197,13 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 {
 	if (ManageInventoryWidget)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("PickUpItem Success"));
-
-		// 새로운 아이템 위젯 생성
-		UCItemWidget* NewItemWidget = CreateWidget<UCItemWidget>(GetWorld(), ManageInventoryWidget->GetClass());
-		if (NewItemWidget)
+		if (CInventoryWidget)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("NewItemWidget created successfully!"));
-			// 아이템 데이터 설정
-			NewItemWidget->SetItemData(NewItem);
+			CInventoryWidget->SetInven(0, NewItem);
+		}
+		
 
-			// 인벤토리 패널에 추가
-			ManageInventoryWidget->AddChildToPanel(NewItemWidget);
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("NewItemWidget is nullptr!"));
-		}
+		
 	}
 }
 

@@ -26,5 +26,6 @@ void UCInventory::NativeConstruct()
 {
 	Super::NativeConstruct();
 	bIsInventoryOpen = false;
-	
+   // Itemarray.SetNum(1);
+    //Itemarray.Add(CreateWidget<>)
 }

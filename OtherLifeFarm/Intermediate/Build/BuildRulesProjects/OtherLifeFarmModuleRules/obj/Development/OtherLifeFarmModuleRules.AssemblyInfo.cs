@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OtherLifeFarmModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af8cecaf19914a90afdaf40b3b946735722cc1d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d7f8c2db026b21e678dad668a58fc72a2697171")]
 [assembly: System.Reflection.AssemblyProductAttribute("OtherLifeFarmModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OtherLifeFarmModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
