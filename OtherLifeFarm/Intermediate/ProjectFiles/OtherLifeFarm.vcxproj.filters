@@ -97,6 +97,12 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Grain\CRice.h">
       <Filter>Source\OtherLifeFarm\Grain</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Grain\CTree.cpp">
+      <Filter>Source\OtherLifeFarm\Grain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Grain\CTree.h">
+      <Filter>Source\OtherLifeFarm\Grain</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Inventory">
       <UniqueIdentifier>{56D0B776-3307-3C7A-97C0-ABC69011EF21}</UniqueIdentifier>
     </Filter>
