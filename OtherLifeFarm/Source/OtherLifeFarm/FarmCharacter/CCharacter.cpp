@@ -8,6 +8,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Inventory/CInventory.h"
 #include "Inventory/CItemWidget.h"
+#include "Kismet/GameplayStatics.h"
 
 ACCharacter::ACCharacter()
 {
@@ -63,6 +64,8 @@ ACCharacter::ACCharacter()
 		InventoryWidgetClass = ItemWidgetAsset.Class;
 	}
 
+	
+
 
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
 	SpringArmComp->SetupAttachment(GetCapsuleComponent());
@@ -78,7 +81,7 @@ ACCharacter::ACCharacter()
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	bUseControllerRotationYaw = false;
 
-
+	playanim = false;
 
 
 
@@ -128,7 +131,8 @@ void ACCharacter::BeginPlay()
 		}
 
 	}
-		
+
+	
 	
 }
 
@@ -145,7 +149,7 @@ void ACCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACCharacter::MoveRight);
 
-	PlayerInputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACCharacter::MouseLeft);
+	
 	PlayerInputComponent->BindAction("OpenSkillWindow", IE_Pressed, this, &ACCharacter::OpenWindowSkill);
 	PlayerInputComponent->BindAction("OpenInventory", IE_Pressed, this, &ACCharacter::OpenInventory);
 }
@@ -175,12 +179,12 @@ void ACCharacter::OpenWindowSkill()
 		if (IsVisible)
 		{
 			SkillWindowWidget->RemoveFromViewport();
-			Rake->bPlayerAnimation = true;
+			
 		}
 		else
 		{
 			SkillWindowWidget->AddToViewport();
-			Rake->bPlayerAnimation = false;
+			
 		}
 	}
 }
@@ -207,13 +211,7 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 	}
 }
 
-void ACCharacter::MouseLeft()
-{
-	if (Rake && Rake->bPlayerAnimation)
-	{
-		Rake->Plowing();
-	}
-}
+
 
 void ACCharacter::SetCustomMouseCursor()
 {

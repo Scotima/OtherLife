@@ -3,6 +3,9 @@
 #include "GameFramework/Character.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "FarmCharacter/CCharacter.h"
+#include "GameFramework/PlayerController.h"
+#include "Kismet/GameplayStatics.h"
 
 
 ACRake::ACRake()
@@ -39,7 +42,14 @@ void ACRake::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
+	Character = Cast<ACCharacter>(GetOwner());
+
+	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+	if (PlayerController)
+	{
+
+		PlayerController->InputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACRake::Plowing);
+	}
 	
 }
 
@@ -62,8 +72,13 @@ void ACRake::Plowing()
 		UE_LOG(LogTemp, Error, TEXT("RakeAssetMontage is null in Plowing!"));
 		return;
 	}
-	OwnerCharacter->PlayAnimMontage(RakeAssetMontage);
-	SweepSingleByChannel();
+	if (Character->playanim == true)
+	{
+		OwnerCharacter->PlayAnimMontage(RakeAssetMontage);
+		SweepSingleByChannel();
+		
+	}
+
 }
 
 void ACRake::SweepSingleByChannel()
@@ -119,8 +134,13 @@ void ACRake::AttachToOwner()
 	RakeMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	RakeMesh->SetRelativeLocation(FVector(0.f, 0.f, -50.f));
 	RakeMesh->SetRelativeRotation(FRotator(0.f, 100.f, 0.f));
-
-	bPlayerAnimation = true;
+	
+	
+	if (Character)
+	{
+		Character->playanim = true;
+	}
+	
 
 	UE_LOG(LogTemp, Log, TEXT("Rake attached to the owner."));
 }
@@ -141,7 +161,13 @@ void ACRake::DetachFromOwner()
 
 	UE_LOG(LogTemp, Log, TEXT("Rake detached and returned to original position."));
 
-	bPlayerAnimation = false;
+	
+
+	if (Character)
+	{
+		Character->playanim = false;
+	}
+
 
 }
 

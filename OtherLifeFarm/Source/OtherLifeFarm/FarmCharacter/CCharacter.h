@@ -10,6 +10,7 @@ class UCameraComponent;
 class ACRake;
 class UUserWidget;
 class UCManageInventory;
+class ACGhostRice;
 
 UCLASS()
 class OTHERLIFEFARM_API ACCharacter : public ACharacter
@@ -32,7 +33,7 @@ private:
 	void MoveRight(float value);
 
 
-	void MouseLeft();
+	
 
 	void SetCustomMouseCursor();
 
@@ -69,6 +70,10 @@ protected:
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<class UCItemWidget> InventoryWidgetClass;
 
+
+	
+	
+
 private:
 
 	UPROPERTY()
@@ -79,12 +84,19 @@ private:
 	UPROPERTY()
 	UCItemWidget* ManageInventoryWidget;
 
+	
+	
 public:
 	UPROPERTY(BlueprintReadWrite, Category = "Tools")
 	ACRake* Rake;
 	
 	UPROPERTY(BlueprintReadWrite, Category = "UI")
 	bool IsVisible;
+
+	
+
+public:
+	bool playanim;
 
 	
 };

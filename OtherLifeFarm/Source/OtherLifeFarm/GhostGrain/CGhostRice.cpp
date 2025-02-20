@@ -7,6 +7,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Grain/CRice.h"
 #include "Tools/CRake.h"
+#include "FarmCharacter/CCharacter.h"
 
 // Sets default values
 ACGhostRice::ACGhostRice()
@@ -38,13 +39,19 @@ ACGhostRice::ACGhostRice()
 void ACGhostRice::BeginPlay()
 {
 	Super::BeginPlay();
+	isActive = true;
 	
 	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	if (PlayerController)
 	{
+		
 		PlayerController->InputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACGhostRice::RealSpawnRice);
 		PlayerController->InputComponent->BindAction("Cancel", IE_Pressed, this, &ACGhostRice::Cancel);
 	}
+
+	character = Cast<ACCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+
+	
 }
 
 void ACGhostRice::Tick(float DeltaTime)
@@ -57,6 +64,7 @@ void ACGhostRice::Tick(float DeltaTime)
 
 void ACGhostRice::SetGhostLocation()
 {
+	
 
 	if (!PlayerController)
 		return;
@@ -73,6 +81,9 @@ void ACGhostRice::SetGhostLocation()
 void ACGhostRice::RealSpawnRice()
 {
 
+	if (!isActive)
+		return;
+
 	if (RiceClass == nullptr)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("RiceClass is null"));
@@ -86,11 +97,21 @@ void ACGhostRice::RealSpawnRice()
 		World->SpawnActor<ACRice>(RiceClass, GetActorLocation(), FRotator::ZeroRotator);
 	}
 
+	
+
 }
+
 
 void ACGhostRice::Cancel()
 {
 	this->Destroy();
 	
+	if (character)
+	{
+		character->playanim = true;
+		return;
+	}
+
+	isActive = false;
 }
 

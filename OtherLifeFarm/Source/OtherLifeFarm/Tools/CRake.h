@@ -9,6 +9,7 @@
 class UStaticMeshComponent;
 class UAnimMontage;
 class ACharacter;
+class ACCharacter;
 
 
 UCLASS()
@@ -41,7 +42,7 @@ public:
 
 public:
 
-	bool bPlayerAnimation;
+	
 
 private:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
@@ -53,6 +54,8 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Socket");
 	FName HandSocket;
 
+	UPROPERTY()
+	APlayerController* PlayerController;
 
 
 private:
@@ -60,6 +63,8 @@ private:
 
 	FVector OriginalLocation;
 	FRotator OriginalRotation;
+
+	ACCharacter* Character;
 
 
 };

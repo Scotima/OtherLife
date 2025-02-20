@@ -9,6 +9,7 @@ class UStaticMeshComponent;
 class ACRice;
 
 class ACRake;
+class ACCharacter;
 
 
 UCLASS()
@@ -36,18 +37,26 @@ private:
 
 public:
 	void SetGhostLocation();
-	void RealSpawnRice();
+
 
 	void Cancel();
+	
+public:
+	UFUNCTION(BlueprintCallable, Category = "Rice") //블루프린트에서 호출
+	void RealSpawnRice();
 
+
+	bool isActive;
 private:
 	UPROPERTY()
 	APlayerController* PlayerController;
 
 
+private:
+	ACCharacter* character;
 	
 
-
+	
 
 
 };
