@@ -103,6 +103,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Grain\CTree.h">
       <Filter>Source\OtherLifeFarm\Grain</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\InterFace">
+      <UniqueIdentifier>{AD856ECA-D2F5-3B50-8461-C50081DCECC8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\InterFace\CAnimInterface.cpp">
+      <Filter>Source\OtherLifeFarm\InterFace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\InterFace\CAnimInterface.h">
+      <Filter>Source\OtherLifeFarm\InterFace</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Inventory">
       <UniqueIdentifier>{56D0B776-3307-3C7A-97C0-ABC69011EF21}</UniqueIdentifier>
     </Filter>

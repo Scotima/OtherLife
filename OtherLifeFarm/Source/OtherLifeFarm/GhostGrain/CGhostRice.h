@@ -8,6 +8,8 @@
 class UStaticMeshComponent;
 class ACRice;
 
+class ACRake;
+
 
 UCLASS()
 class OTHERLIFEFARM_API ACGhostRice : public AActor
@@ -41,6 +43,11 @@ public:
 private:
 	UPROPERTY()
 	APlayerController* PlayerController;
+
+
+	
+
+
 
 
 };

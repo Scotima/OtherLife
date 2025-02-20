@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Components/StaticMeshComponent.h"
 #include "Grain/CRice.h"
+#include "Tools/CRake.h"
 
 // Sets default values
 ACGhostRice::ACGhostRice()
@@ -90,5 +91,6 @@ void ACGhostRice::RealSpawnRice()
 void ACGhostRice::Cancel()
 {
 	this->Destroy();
+	
 }
 

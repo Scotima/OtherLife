@@ -1,5 +1,40 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.OtherLifeFarm.cpp.obj": [
+			"CAnimInterface.gen.cpp.obj",
+			"CCharacter.gen.cpp.obj",
+			"CGhostRice.gen.cpp.obj",
+			"CInventory.gen.cpp.obj",
+			"CItem.gen.cpp.obj",
+			"CItemWidget.gen.cpp.obj",
+			"CManageInventory.gen.cpp.obj",
+			"CRake.gen.cpp.obj",
+			"CRice.gen.cpp.obj",
+			"CTree.gen.cpp.obj",
+			"FItemStruct.gen.cpp.obj",
+			"MyGameModeBase.gen.cpp.obj",
+			"OtherLifeFarmCharacter.gen.cpp.obj",
+			"OtherLifeFarmGameMode.gen.cpp.obj",
+			"OtherLifeFarmPlayerController.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"CCharacter.cpp.obj",
+			"MyGameModeBase.cpp.obj",
+			"CRice.cpp.obj",
+			"CTree.cpp.obj",
+			"CInventory.cpp.obj",
+			"CItemWidget.cpp.obj",
+			"CManageInventory.cpp.obj",
+			"FItemStruct.cpp.obj",
+			"CItem.cpp.obj",
+			"OtherLifeFarm.cpp.obj",
+			"OtherLifeFarmCharacter.cpp.obj",
+			"OtherLifeFarmGameMode.cpp.obj",
+			"OtherLifeFarmPlayerController.cpp.obj",
+			"OtherLifeFarm.init.gen.cpp.obj",
+			"CGhostRice.cpp.obj",
+			"CAnimInterface.cpp.obj",
+			"CRake.cpp.obj"
+		]
 	}
 }
