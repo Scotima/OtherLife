@@ -36,6 +36,8 @@ public:
 	void SetGhostLocation();
 	void RealSpawnRice();
 
+	void Cancel();
+
 private:
 	UPROPERTY()
 	APlayerController* PlayerController;

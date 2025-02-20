@@ -42,6 +42,7 @@ void ACGhostRice::BeginPlay()
 	if (PlayerController)
 	{
 		PlayerController->InputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACGhostRice::RealSpawnRice);
+		PlayerController->InputComponent->BindAction("Cancel", IE_Pressed, this, &ACGhostRice::Cancel);
 	}
 }
 
@@ -84,5 +85,10 @@ void ACGhostRice::RealSpawnRice()
 		World->SpawnActor<ACRice>(RiceClass, GetActorLocation(), FRotator::ZeroRotator);
 	}
 
+}
+
+void ACGhostRice::Cancel()
+{
+	this->Destroy();
 }
 
