@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Inventory/FItemStruct.h"
 #include "CRice.generated.h"
 
 UCLASS()
@@ -24,6 +25,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 
+
+public:
+	void GoToInventory();
+
 private:
 	UFUNCTION()
 	void GrowRice();
@@ -35,8 +40,13 @@ public:
 	UPROPERTY()
 	TArray<UStaticMesh*> RiceMeshs;
 
+
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Item")
+	FItemStruct ItemData;
+
 private:
 	int32 CurrentMeshIndex;
 	FTimerHandle ChangeMeshTimerHandle;
+
 
 };

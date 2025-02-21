@@ -1,4 +1,6 @@
 #include "Grain/CRice.h"
+#include "FarmCharacter/CCharacter.h"
+#include "Kismet/GameplayStatics.h"
 
 ACRice::ACRice()
 {
@@ -18,8 +20,15 @@ ACRice::ACRice()
 		RiceMeshs.Add(RiceMeshAsset2.Object);
 
 		RiceMesh->SetStaticMesh(RiceMeshs[0]);
-	}
+	}	
 
+	// RiceMesh의 충돌 설정 추가
+	RiceMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics); // 물리 연산 없이 충돌 감지만
+	RiceMesh->SetCollisionObjectType(ECC_WorldDynamic); // 동적 오브젝트로 설정
+	RiceMesh->SetCollisionResponseToAllChannels(ECR_Overlap);
+	RiceMesh->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block); // 트레이스 감지를 위해 Visibility만 Block
+
+	
 	CurrentMeshIndex = 0;
 
 }
@@ -35,6 +44,16 @@ void ACRice::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ACRice::GoToInventory()
+{
+	ACCharacter* character = Cast<ACCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+
+	if (character)
+	{
+		character->PickupItem(ItemData);
+	}
 }
 
 void ACRice::GrowRice()

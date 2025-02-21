@@ -14,7 +14,6 @@
 			"CTree.gen.cpp.obj",
 			"FItemStruct.gen.cpp.obj",
 			"MyGameModeBase.gen.cpp.obj",
-			"OtherLifeFarm.init.gen.cpp.obj",
 			"OtherLifeFarmCharacter.gen.cpp.obj",
 			"OtherLifeFarmGameMode.gen.cpp.obj",
 			"OtherLifeFarmPlayerController.gen.cpp.obj",
@@ -22,7 +21,6 @@
 			"CCharacter.cpp.obj",
 			"MyGameModeBase.cpp.obj",
 			"CGhostRice.cpp.obj",
-			"CRice.cpp.obj",
 			"CTree.cpp.obj",
 			"CAnimInterface.cpp.obj",
 			"CInventory.cpp.obj",
@@ -34,6 +32,8 @@
 			"OtherLifeFarmCharacter.cpp.obj",
 			"OtherLifeFarmGameMode.cpp.obj",
 			"OtherLifeFarmPlayerController.cpp.obj",
+			"OtherLifeFarm.init.gen.cpp.obj",
+			"CRice.cpp.obj",
 			"CRake.cpp.obj"
 		]
 	}

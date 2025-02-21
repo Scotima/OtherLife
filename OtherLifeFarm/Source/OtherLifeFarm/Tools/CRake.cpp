@@ -6,6 +6,7 @@
 #include "FarmCharacter/CCharacter.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
+#include "Grain/CRice.h"
 
 
 ACRake::ACRake()
@@ -92,21 +93,47 @@ void ACRake::SweepSingleByChannel()
 	FVector End = Start + MultipliedVector;
 	float SphereRadius = 100.f;
 
-	FHitResult HitResult;
+	TArray<FHitResult> HitResult;
 	TArray<AActor*> ActorsToIgnore;
 	ActorsToIgnore.Add(this);
 
+	
 
 
-	bool bHit = UKismetSystemLibrary::SphereTraceSingle(
-		GetWorld(), End, End, SphereRadius, UEngineTypes::ConvertToTraceType(ECC_EngineTraceChannel1), false, ActorsToIgnore,
+
+	bool bHit = UKismetSystemLibrary::SphereTraceMulti(
+		GetWorld(), End, End, SphereRadius, UEngineTypes::ConvertToTraceType(ECC_Visibility), false, ActorsToIgnore,
 		EDrawDebugTrace::ForDuration, HitResult, true, FLinearColor::Red, FLinearColor::Green, 1.f);
 
-	if (bHit)
-	{
-		UE_LOG(LogTemp, Log, TEXT("Hit Actor : %s"), *HitResult.GetActor()->GetName());
 
+	for (const FHitResult& hitresult : HitResult)
+	{
+		if(bHit)
+		{
+			UE_LOG(LogTemp, Log, TEXT("Hit Actor : %s"), *hitresult.GetActor()->GetName());
+			UE_LOG(LogTemp, Warning, TEXT("Ignoring %d actors"), ActorsToIgnore.Num());
+			UE_LOG(LogTemp, Warning, TEXT("Total Hit Count: %d"), HitResult.Num());
+		}
+
+		if (bHit)
+		{
+			UStaticMeshComponent* HitComponent = Cast<UStaticMeshComponent>(hitresult.GetComponent());
+			if(HitComponent)
+			{ 
+				rice = Cast<ACRice>(hitresult.GetActor());
+				if (rice)
+				{
+					rice->GoToInventory();
+				}
+				else
+				{
+					UE_LOG(LogTemp, Warning, TEXT("rice casting failed"));
+				}
+			}
+
+		}
 	}
+	
 
 	
 }
@@ -114,7 +141,7 @@ void ACRake::SweepSingleByChannel()
 void ACRake::AttachToOwner()
 {
 
-	OwnerCharacter = Cast<ACharacter>(GetOwner());
+	OwnerCharacter = Cast<ACCharacter>(GetOwner());
 	if (!OwnerCharacter || !RakeMesh) return;
 
 	if (OriginalLocation.IsZero() && OriginalRotation.IsZero())

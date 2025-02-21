@@ -10,14 +10,15 @@ class UStaticMeshComponent;
 class UAnimMontage;
 class ACharacter;
 class ACCharacter;
+class ACRice;
 
 
 UCLASS()
 class OTHERLIFEFARM_API ACRake : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	ACRake();
 
@@ -25,7 +26,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -42,7 +43,7 @@ public:
 
 public:
 
-	
+
 
 private:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
@@ -59,12 +60,12 @@ private:
 
 
 private:
-	ACharacter* OwnerCharacter;
+	ACCharacter* OwnerCharacter;
 
 	FVector OriginalLocation;
 	FRotator OriginalRotation;
 
 	ACCharacter* Character;
-
+	ACRice* rice;
 
 };
