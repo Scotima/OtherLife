@@ -41,7 +41,7 @@ void UCManageInventory::UpdateUI()
 		if (NewItemWidget)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("NewItemWidget is not null"));
-			NewItemWidget->SetItemData(Item);
+			//NewItemWidget->SetItemData(Item);
 			InventoryPanel->AddChild(NewItemWidget);
 			ItemWidgetList.Add(NewItemWidget);
 		}

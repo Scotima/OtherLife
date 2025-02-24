@@ -22,6 +22,14 @@ void UCInventory::ToggleInventory()
     }
 }
 
+void UCInventory::SetInven(int32 a)
+{
+    
+    
+        Itemarray[a]->SetItemData(Data[a]);
+    
+}
+
 void UCInventory::NativeConstruct()
 {
 	Super::NativeConstruct();

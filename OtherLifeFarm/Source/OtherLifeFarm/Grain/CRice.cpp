@@ -56,6 +56,11 @@ void ACRice::GoToInventory()
 	}
 }
 
+void ACRice::SetGrowing()
+{
+	GetWorldTimerManager().SetTimer(ChangeMeshTimerHandle, this, &ACRice::GrowRice, 2.0f, true);
+}
+
 void ACRice::GrowRice()
 {
 

@@ -17,10 +17,14 @@ public:
 
 	void NativeConstruct();
 	UFUNCTION(BlueprintCallable)
-	void SetItemData(const FItemStruct& ItemData);
+	void SetItemData( FItemStruct& ItemData);
 
 	UFUNCTION(BlueprintCallable)
 	void AddChildToPanel(UWidget* Widget);
+
+
+	
+	
 
 protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))

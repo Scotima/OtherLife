@@ -18,7 +18,7 @@ void UCItemWidget::NativeConstruct()
     }
 }
 
-void UCItemWidget::SetItemData(const FItemStruct& ItemData)
+void UCItemWidget::SetItemData(FItemStruct& ItemData)
 {
     UE_LOG(LogTemp, Warning, TEXT("SetItemData Succeess"));
 
@@ -68,7 +68,6 @@ void UCItemWidget::SetItemData(const FItemStruct& ItemData)
         UE_LOG(LogTemp, Warning, TEXT("CountText Success"));
         UE_LOG(LogTemp, Warning, TEXT("ItemCountText before set: %s"), *ItemCountText->GetText().ToString());
         ItemCountText->SetText(FText::AsNumber(ItemData.ItemCount));
-
         UE_LOG(LogTemp, Warning, TEXT("ItemCountText after set: %s"), *ItemCountText->GetText().ToString());
         ItemCountText->InvalidateLayoutAndVolatility();
         ItemCountText->SetVisibility(ESlateVisibility::Visible);

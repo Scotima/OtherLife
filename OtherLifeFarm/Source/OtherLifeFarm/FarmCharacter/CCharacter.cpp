@@ -83,6 +83,8 @@ ACCharacter::ACCharacter()
 
 	playanim = false;
 
+	ItemIndex = 0;
+
 
 
 }
@@ -203,7 +205,25 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 	{
 		if (CInventoryWidget)
 		{
-			CInventoryWidget->SetInven(0, NewItem);
+			
+			for (int i = 1; i < 9; i++)
+			{
+				int index = i - 1;
+				if (index < CInventoryWidget->Data.Num())
+				{
+					if (NewItem.ItemName == CInventoryWidget->Data[index].ItemName)
+					{
+						CInventoryWidget->Data[index].ItemCount += 1;
+					}
+				}
+			}
+
+			CInventoryWidget->SetData(NewItem);
+			CInventoryWidget->SetInven(ItemIndex);
+
+			ItemIndex++;
+			
+
 		}
 		
 

@@ -25,9 +25,15 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 
+public:
+	void SetCurrentMeshIndex(int32 a) { CurrentMeshIndex = a; }
+	int32 GetCurrentMeshIndex() { return CurrentMeshIndex; }
+
 
 public:
 	void GoToInventory();
+
+	void SetGrowing();
 
 private:
 	UFUNCTION()

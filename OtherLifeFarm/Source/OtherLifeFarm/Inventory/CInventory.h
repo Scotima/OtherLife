@@ -22,12 +22,20 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory")
 	TArray<UCItemWidget*> Itemarray;
+	
+	TArray<FItemStruct> Data;
+	
+public:
+	void SetData(const FItemStruct& a) { Data.Add(a); }
+	void SetInven(int32 a);
 
-	void SetInven(int32 index, FItemStruct data)
-	{
-		
-		Itemarray[index]->SetItemData(data);
-	}
+	
+
+
+
+
+
+
 protected:
 	virtual void NativeConstruct() override;
 

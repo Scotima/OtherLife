@@ -124,6 +124,9 @@ void ACRake::SweepSingleByChannel()
 				if (rice)
 				{
 					rice->GoToInventory();
+					rice->SetCurrentMeshIndex(0);
+					rice->RiceMesh->SetStaticMesh(rice->RiceMeshs[rice->GetCurrentMeshIndex()]);
+					rice->SetGrowing();
 				}
 				else
 				{

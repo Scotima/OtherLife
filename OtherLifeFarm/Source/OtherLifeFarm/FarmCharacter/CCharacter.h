@@ -98,5 +98,8 @@ public:
 public:
 	bool playanim;
 
+private:
+	int32 ItemIndex;
+
 	
 };

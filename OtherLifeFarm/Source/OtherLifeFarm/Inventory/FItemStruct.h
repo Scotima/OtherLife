@@ -24,9 +24,9 @@ public:
 
 	FItemStruct()
 	{
-		ItemName = TEXT("Default");
+		ItemName = nullptr;
 		ItemIcon = nullptr;
-		ItemCount = 1;
+		ItemCount = 0;
 
 	}
 };
