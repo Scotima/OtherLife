@@ -26,7 +26,7 @@ void UCInventory::SetInven(int32 a)
 {
     
     
-        Itemarray[a]->SetItemData(Data[a]);
+    Itemarray[a]->SetItemData(Data[a]);
     
 }
 

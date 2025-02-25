@@ -76,7 +76,9 @@ void ACRake::Plowing()
 	if (Character->playanim == true)
 	{
 		OwnerCharacter->PlayAnimMontage(RakeAssetMontage);
+		TurnToMouse();
 		SweepSingleByChannel();
+		
 		
 	}
 
@@ -139,6 +141,39 @@ void ACRake::SweepSingleByChannel()
 	
 
 	
+}
+
+void ACRake::TurnToMouse()
+{
+	APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+
+	if (!PC)
+	{
+		return;
+	}
+	FVector WorldLocation, WorldDirection;
+
+	if (PC->DeprojectMousePositionToWorld(WorldLocation, WorldDirection))
+	{
+
+		FHitResult HitResult;
+		FVector Start = WorldLocation;
+		FVector End = Start + (WorldDirection * 10000.f);
+
+		FCollisionQueryParams QueryParams;
+		QueryParams.AddIgnoredActor(this);
+
+		if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams))
+		{
+			FVector MouseWorldPosition = HitResult.Location;
+			FRotator LookAtRotation = (MouseWorldPosition - GetActorLocation()).Rotation();
+			LookAtRotation.Pitch = 0.f; // Y√‡ ∞Ì¡§
+			OwnerCharacter = Cast<ACCharacter>(GetOwner());
+			if (!OwnerCharacter) return;
+			OwnerCharacter->SetActorRotation(LookAtRotation);
+		}
+
+	}
 }
 
 void ACRake::AttachToOwner()

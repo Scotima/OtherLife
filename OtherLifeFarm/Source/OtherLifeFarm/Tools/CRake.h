@@ -34,6 +34,8 @@ public:
 	void Plowing();
 	void SweepSingleByChannel();
 
+	void TurnToMouse();
+
 public:
 	UFUNCTION(BlueprintCallable, Category = "Rake")
 	void AttachToOwner(); // 블루프린트에서 호출 가능

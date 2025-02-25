@@ -142,6 +142,9 @@ void ACCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	
+
+
 }
 
 void ACCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -213,7 +216,9 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 				{
 					if (NewItem.ItemName == CInventoryWidget->Data[index].ItemName)
 					{
-						CInventoryWidget->Data[index].ItemCount += 1;
+						CInventoryWidget->Data[index].ItemCount += NewItem.ItemCount;
+						CInventoryWidget->SetInven(index);
+						return;
 					}
 				}
 			}
