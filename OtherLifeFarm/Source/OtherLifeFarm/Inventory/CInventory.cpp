@@ -3,6 +3,7 @@
 #include "Inventory/CInventory.h"
 #include "CInventory.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
+#include "CItemWidget.h"
 
 void UCInventory::ToggleInventory()
 {

@@ -7,7 +7,7 @@
 *.o
 *.obj
 *uasset
-
+*Zip
 
 # Precompiled Headers
 *.gch

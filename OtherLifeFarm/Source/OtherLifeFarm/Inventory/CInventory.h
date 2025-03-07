@@ -3,9 +3,10 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "CItemWidget.h"
+#include "FItemStruct.h"
 #include "CInventory.generated.h"
 
+class UCItemWidget;
 
 UCLASS()
 class OTHERLIFEFARM_API UCInventory : public UUserWidget
@@ -30,7 +31,7 @@ public:
 	void SetInven(int32 a);
 
 	
-
+	
 
 
 

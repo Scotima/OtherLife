@@ -27,6 +27,9 @@ public:
 	
 
 protected:
+
+
+
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	UTextBlock* ItemNameText;
 

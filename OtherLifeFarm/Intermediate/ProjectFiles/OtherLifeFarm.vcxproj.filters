@@ -115,6 +115,12 @@
     <Filter Include="Source\OtherLifeFarm\Inventory">
       <UniqueIdentifier>{56D0B776-3307-3C7A-97C0-ABC69011EF21}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CFoodItemWidget.cpp">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CFoodItemWidget.h">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CInventory.cpp">
       <Filter>Source\OtherLifeFarm\Inventory</Filter>
     </ClCompile>
@@ -125,6 +131,12 @@
       <Filter>Source\OtherLifeFarm\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CItemWidget.h">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CMakeFoodWidget.cpp">
+      <Filter>Source\OtherLifeFarm\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CMakeFoodWidget.h">
       <Filter>Source\OtherLifeFarm\Inventory</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\Inventory\CManageInventory.cpp">
