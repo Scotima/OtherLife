@@ -6,6 +6,13 @@ void UCMakeFoodWidget::NativeConstruct()
 {
 	FoodDataTable = LoadObject<UDataTable>(nullptr, TEXT("/Game/FarmGame/DataTable/DT_Food"));
 
+	if (!FoodDataTable)
+	{
+		UE_LOG(LogTemp, Error,TEXT("FoodDataTable is null"));
+		return;
+	}
+
+	SetInven();
 }
 
 void UCMakeFoodWidget::ToogleInventory()
@@ -37,7 +44,16 @@ void UCMakeFoodWidget::SetInven()
 	
 	if (FoodItemArray.Num() < FoodData.Num())
 	{
-		UE_LOG(LogTemp, Error, TEXT("")); // Todo 배열 이어서 마저 작성하기.
+		UE_LOG(LogTemp, Error, TEXT("FoodItemArray 크기가 부족합니다."));
+		return;
+	}
+
+	for (int i = 0; i < FoodData.Num(); i++)
+	{
+		if (FoodItemArray.IsValidIndex(i))
+		{
+			FoodItemArray[i]->SetItemData(*FoodData[i]);
+		}
 	}
 
 }
