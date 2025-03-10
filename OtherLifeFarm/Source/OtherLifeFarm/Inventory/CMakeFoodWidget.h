@@ -37,7 +37,8 @@ public:
 private:
 	UDataTable* FoodDataTable;
 
-private:
+public:
+	UPROPERTY(BlueprintReadWrite)
 	bool bIsFoodWidgetOpen;
 
 	
