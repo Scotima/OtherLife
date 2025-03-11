@@ -4,11 +4,12 @@
 #include "CInventory.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "CItemWidget.h"
+#include "Components/CanvasPanelSlot.h"
 
 void UCInventory::ToggleInventory()
 {
 	
-
+    SetZorder();
     bIsInventoryOpen = !bIsInventoryOpen;
 
     if (bIsInventoryOpen)
@@ -20,6 +21,15 @@ void UCInventory::ToggleInventory()
     {
         this->SetVisibility(ESlateVisibility::Hidden);
         //UWidgetBlueprintLibrary::SetInputMode_GameOnly(GetOwningPlayer());
+    }
+}
+
+void UCInventory::SetZorder()
+{
+
+    if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
+    {
+        CanvasSlot->SetZOrder(2);
     }
 }
 

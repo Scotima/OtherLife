@@ -2,10 +2,16 @@
 #include "Inventory/CFoodItemWidget.h"
 #include "Blueprint/UserWidget.h"
 #include "CMakeFoodWidget.h"
+#include "Components/CanvasPanelSlot.h"
+
 
 void UCMakeFoodWidget::NativeConstruct()
 {
 	FoodDataTable = LoadObject<UDataTable>(nullptr, TEXT("/Game/FarmGame/DataTable/DT_Food"));
+
+	
+
+	
 
 	
 
@@ -24,15 +30,23 @@ void UCMakeFoodWidget::ToogleInventory()
 
 	SetInven();
 
-	SetVisibility(bIsFoodWidgetOpen ? ESlateVisibility::Visible : ESlateVisibility::Hidden);
+	//SetVisibility(bIsFoodWidgetOpen ? ESlateVisibility::Visible : ESlateVisibility::Hidden);
 
-	if (bIsFoodWidgetOpen)
+	if (bIsFoodWidgetOpen )
 	{
-		//this->SetZOrderInViewport(10); // 최상단
+		if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
+		{
+			CanvasSlot->SetZOrder(10);
+		}
+
+		
 	}
 	else
 	{
-		//this->SetZOrderInViewport(1);  // 하단
+		if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
+		{
+			CanvasSlot->SetZOrder(1);
+		}
 	}
 }
 
@@ -44,16 +58,15 @@ void UCMakeFoodWidget::SetInven()
 		return;
 	}
 	//FoodData = new TArray<FItemStruct*>();
-	if(FoodData.Num()>0)
-		FoodData.Empty();
+	if (FoodData.Num() > 0)
+	{
+		FoodData.Empty(); 
+	}
 
 	FoodDataTable->GetAllRows<FItemStruct>(TEXT("DataTable Context"), FoodData);
+
 	
-	if (FoodItemArray.Num() < FoodData.Num())
-	{
-		UE_LOG(LogTemp, Error, TEXT("Food item array size is not enough"));
-		return;
-	}
+
 
 	for (int i = 0; i < FoodData.Num(); i++)
 	{
@@ -62,5 +75,13 @@ void UCMakeFoodWidget::SetInven()
 			FoodItemArray[i]->SetItemData(*FoodData[i]);
 		}
 	}
+	
+	if (FoodItemArray.Num() < FoodData.Num())
+	{
+		UE_LOG(LogTemp, Error, TEXT("Food item array size is not enough"));
+		return;
+	}
+
+
 
 }

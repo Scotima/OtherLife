@@ -10,6 +10,7 @@
 class UTextBlock;
 class UImage;
 class UPanelWidget;
+class UButton;
 
 UCLASS()
 class OTHERLIFEFARM_API UCFoodItemWidget : public UUserWidget
@@ -30,7 +31,7 @@ protected:
 	UTextBlock* FoodNameText;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
-	UImage* FoodIconImage;
+	UButton* FoodIconButton;
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	UTextBlock* FoodNameCount;

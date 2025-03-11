@@ -17,6 +17,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ToggleInventory();
 
+	UFUNCTION(BlueprintCallable)
+	void SetZorder();
+
 	void SetInventoryOpen(bool a) { bIsInventoryOpen = a; }
 
 	bool GetInventoryOpen() { return bIsInventoryOpen; }

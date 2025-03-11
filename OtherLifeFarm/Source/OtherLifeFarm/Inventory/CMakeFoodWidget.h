@@ -30,7 +30,7 @@ protected:
 
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory")
-	TArray<UCFoodItemWidget* > FoodItemArray;
+	TArray<UCFoodItemWidget*> FoodItemArray;
 
 	TArray<FItemStruct*> FoodData;
 

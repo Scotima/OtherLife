@@ -2,6 +2,7 @@
 #include "Components/TextBlock.h"
 #include "Components/Image.h"
 #include "Components/PanelWidget.h"
+#include "Components/Button.h"
 
 void UCFoodItemWidget::NativeConstruct()
 {
@@ -30,10 +31,25 @@ void UCFoodItemWidget::SetItemData(FItemStruct& FoodData)
 
 	
 
-	if (FoodIconImage && FoodData.ItemIcon)
+	if (FoodIconButton && FoodData.ItemIcon)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("ItemIcon Succeess"));
-		FoodIconImage->SetBrushFromTexture(FoodData.ItemIcon);
+		// 현재 버튼 스타일을 가져옵니다.
+		FButtonStyle NewStyle = FoodIconButton->WidgetStyle;
+
+		// 새 브러시를 생성하고 텍스처를 할당합니다.
+		FSlateBrush NewBrush;
+		NewBrush.SetResourceObject(FoodData.ItemIcon);
+		// 필요에 따라 이미지 사이즈나 기타 브러시 속성을 설정할 수 있습니다.
+		
+		NewBrush.ImageSize = FVector2D(100.0f, 100.0f);
+
+		// 각 상태에 대해 동일한 브러시를 적용합니다.
+		NewStyle.Normal = NewBrush;
+		NewStyle.Hovered = NewBrush;
+		NewStyle.Pressed = NewBrush;
+
+		// 변경된 스타일을 버튼에 적용합니다.
+		FoodIconButton->SetStyle(NewStyle);
 	}
 
 	else

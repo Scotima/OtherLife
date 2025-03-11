@@ -8,6 +8,8 @@
 /NODEFAULTLIB
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\OtherLifeFarmEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\Module.OtherLifeFarm.cpp.obj"
+"C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\CFoodItemWidget.cpp.obj"
+"C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\CInventory.cpp.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\CMakeFoodWidget.cpp.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\OtherLifeFarm.init.gen.cpp.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\Default.rc2.res"
