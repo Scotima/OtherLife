@@ -3,6 +3,8 @@
 #include "Blueprint/UserWidget.h"
 #include "CMakeFoodWidget.h"
 #include "Components/CanvasPanelSlot.h"
+#include "FarmCharacter/CCharacter.h"
+#include "Kismet/GameplayStatics.h"
 
 
 void UCMakeFoodWidget::NativeConstruct()
@@ -26,28 +28,38 @@ void UCMakeFoodWidget::NativeConstruct()
 
 void UCMakeFoodWidget::ToogleInventory()
 {
-	bIsFoodWidgetOpen = !bIsFoodWidgetOpen;
+	
 
 	SetInven();
 
-	//SetVisibility(bIsFoodWidgetOpen ? ESlateVisibility::Visible : ESlateVisibility::Hidden);
-
-	if (bIsFoodWidgetOpen )
+	if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
 	{
-		if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
-		{
-			CanvasSlot->SetZOrder(10);
-		}
+		CanvasSlot->SetZOrder(10);
+	}
 
-		
-	}
-	else
+	
+	
+}
+
+void UCMakeFoodWidget::SetZorder()
+{
+
+	if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
 	{
-		if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
-		{
-			CanvasSlot->SetZOrder(1);
-		}
+		CanvasSlot->SetZOrder(-1);
 	}
+}
+
+void UCMakeFoodWidget::GoToInventory(int32 a)
+{
+	ACCharacter* character = Cast<ACCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+
+	if (character)
+	{
+		character->PickupItem(*FoodData[a]);
+	}
+
+	
 }
 
 void UCMakeFoodWidget::SetInven()
@@ -62,8 +74,11 @@ void UCMakeFoodWidget::SetInven()
 	{
 		FoodData.Empty(); 
 	}
-
+	
 	FoodDataTable->GetAllRows<FItemStruct>(TEXT("DataTable Context"), FoodData);
+
+	
+	
 
 	
 

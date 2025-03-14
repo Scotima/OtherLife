@@ -27,6 +27,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory")
 	TArray<UCItemWidget*> Itemarray;
 	
+	UPROPERTY(BlueprintReadOnly, Category = "Inventory")
 	TArray<FItemStruct> Data;
 	
 public:

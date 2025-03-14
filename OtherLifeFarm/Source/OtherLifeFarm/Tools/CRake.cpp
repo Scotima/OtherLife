@@ -23,7 +23,7 @@ ACRake::ACRake()
 		RakeMesh->SetStaticMesh(RakeMeshAsset.Object);
 	}
 
-	ConstructorHelpers::FObjectFinder<UAnimMontage> RakeAssetMontageClass(TEXT("/Game/FarmGame/Animation/anim_Farmer_work_Hoe_Montage"));
+	ConstructorHelpers::FObjectFinder<UAnimMontage> RakeAssetMontageClass(TEXT("/Game/FarmGame/BPCharacter/CharacterAsset/Boy/Anim/BOY_Farmer_work_Hoe_Montage"));
 
 	if (RakeAssetMontageClass.Succeeded())
 	{
@@ -191,14 +191,14 @@ void ACRake::AttachToOwner()
 	// Attach to the character's mesh
 	AttachToComponent(
 		OwnerCharacter->GetMesh(),
-		FAttachmentTransformRules(EAttachmentRule::KeepRelative, true),
+		FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true),
 		HandSocket
 	);
 
 	// Configure RakeMesh properties
-	RakeMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-	RakeMesh->SetRelativeLocation(FVector(0.f, 0.f, -50.f));
-	RakeMesh->SetRelativeRotation(FRotator(0.f, 100.f, 0.f));
+	//RakeMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	//RakeMesh->SetRelativeLocation(FVector(0.f, 0.f, -50.f));
+	//RakeMesh->SetRelativeRotation(FRotator(0.f, -100.f, -180.0f));
 	
 	
 	if (Character)

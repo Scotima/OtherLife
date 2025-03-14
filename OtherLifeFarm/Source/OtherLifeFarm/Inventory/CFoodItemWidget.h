@@ -26,6 +26,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddChildToPanel(UWidget* Widget);
 
+
+
+
+
+
 protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	UTextBlock* FoodNameText;

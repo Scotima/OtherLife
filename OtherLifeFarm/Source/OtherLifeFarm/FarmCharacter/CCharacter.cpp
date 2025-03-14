@@ -14,7 +14,7 @@ ACCharacter::ACCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	ConstructorHelpers::FObjectFinder<USkeletalMesh> MeshAsset(TEXT("/Game/Characters/Mannequins/Meshes/SKM_Manny"));
+	ConstructorHelpers::FObjectFinder<USkeletalMesh> MeshAsset(TEXT("/Game/FarmGame/BPCharacter/CharacterAsset/Boy/Boy"));
 	if (MeshAsset.Succeeded())
 	{
 		GetMesh()->SetSkeletalMesh(MeshAsset.Object);
@@ -23,7 +23,7 @@ ACCharacter::ACCharacter()
 	GetMesh()->SetRelativeLocation(FVector(0, 0, -88));
 	GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
 
-	ConstructorHelpers::FClassFinder<UAnimInstance> AnimInstanceClass(TEXT("/Game/Characters/Mannequins/Animations/ABP_Manny"));
+	ConstructorHelpers::FClassFinder<UAnimInstance> AnimInstanceClass(TEXT("/Game/FarmGame/BPCharacter/ABP_BOY"));
 	if (AnimInstanceClass.Succeeded())
 	{
 		GetMesh()->SetAnimInstanceClass(AnimInstanceClass.Class);

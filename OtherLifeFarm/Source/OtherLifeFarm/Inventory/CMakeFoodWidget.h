@@ -25,6 +25,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ToogleInventory();
 
+	UFUNCTION(BlueprintCallable)
+	void SetZorder();
+
+	UFUNCTION(BlueprintCallable)
+	void GoToInventory(int32 a);
+
 protected:
 	void SetInven();
 

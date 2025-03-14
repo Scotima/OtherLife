@@ -20,7 +20,6 @@
 			"OtherLifeFarmGameMode.gen.cpp.obj",
 			"OtherLifeFarmPlayerController.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
-			"CCharacter.cpp.obj",
 			"MyGameModeBase.cpp.obj",
 			"CGhostRice.cpp.obj",
 			"CRice.cpp.obj",
@@ -34,11 +33,12 @@
 			"OtherLifeFarmCharacter.cpp.obj",
 			"OtherLifeFarmGameMode.cpp.obj",
 			"OtherLifeFarmPlayerController.cpp.obj",
-			"CRake.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
+			"CCharacter.cpp.obj",
 			"CFoodItemWidget.cpp.obj",
 			"CInventory.cpp.obj",
-			"CMakeFoodWidget.cpp.obj"
+			"CMakeFoodWidget.cpp.obj",
+			"CRake.cpp.obj"
 		]
 	}
 }
