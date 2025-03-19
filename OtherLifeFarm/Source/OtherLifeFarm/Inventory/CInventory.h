@@ -20,6 +20,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetZorder();
 
+	UFUNCTION(BlueprintCallable)
+	FItemStruct GetItemData(int32 a);
+
 	void SetInventoryOpen(bool a) { bIsInventoryOpen = a; }
 
 	bool GetInventoryOpen() { return bIsInventoryOpen; }

@@ -16,8 +16,9 @@ class OTHERLIFEFARM_API UCItemWidget : public UUserWidget
 public:
 
 	void NativeConstruct();
+
 	UFUNCTION(BlueprintCallable)
-	void SetItemData( FItemStruct& ItemData);
+	void SetItemData(FItemStruct& ItemData);
 
 	UFUNCTION(BlueprintCallable)
 	void AddChildToPanel(UWidget* Widget);
