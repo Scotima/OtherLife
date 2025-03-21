@@ -23,17 +23,13 @@ ACRake::ACRake()
 		RakeMesh->SetStaticMesh(RakeMeshAsset.Object);
 	}
 
-	ConstructorHelpers::FObjectFinder<UAnimMontage> RakeAssetMontageClass(TEXT("/Game/FarmGame/BPCharacter/CharacterAsset/Boy/Anim/BOY_Farmer_work_Hoe_Montage"));
+	//static ConstructorHelpers::FObjectFinder<UAnimMontage> RakeAssetMontageClass(TEXT("/Game/FarmGame/BPCharacter/CharacterAsset/Boy/Anim/BOY_Farmer_work_Hoe_Montage"));
 
-	if (RakeAssetMontageClass.Succeeded())
-	{
-		RakeAssetMontage = RakeAssetMontageClass.Object;
-	}
-
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to load WorkHoeMontage!"));
-	}
+	//if (RakeAssetMontageClass.Succeeded())
+	//{
+	//	RakeAssetMontage = RakeAssetMontageClass.Object;
+	//}
+	
 
 	HandSocket = "hand_rsocket";
 
@@ -51,6 +47,9 @@ void ACRake::BeginPlay()
 
 		PlayerController->InputComponent->BindAction("MouseLeft", IE_Pressed, this, &ACRake::Plowing);
 	}
+
+
+	
 	
 }
 

@@ -45,15 +45,15 @@ public:
 
 public:
 
+	UPROPERTY(EditDefaultsOnly, Category = "Montages");
+	UAnimMontage* RakeAssetMontage;
 
 
 private:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
 	UStaticMeshComponent* RakeMesh;
 
-	UPROPERTY(VisibleDefaultsOnly, Category = "Montages");
-	UAnimMontage* RakeAssetMontage;
-
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Socket");
 	FName HandSocket;
 

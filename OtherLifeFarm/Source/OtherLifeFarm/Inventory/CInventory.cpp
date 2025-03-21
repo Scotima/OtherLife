@@ -33,14 +33,16 @@ void UCInventory::SetZorder()
     }
 }
 
-FItemStruct UCInventory::GetItemData(int32 a)
+void UCInventory::SetItemDataCount(int32 a, UPARAM(ref)FItemStruct& item)
 {
     if (Data.IsValidIndex(a))
     {
-        return Data[a];
+        Data[a] = item;
+
+        SetInven(a);
     }
 
-    return FItemStruct();
+   
 }
 
 void UCInventory::SetInven(int32 a)

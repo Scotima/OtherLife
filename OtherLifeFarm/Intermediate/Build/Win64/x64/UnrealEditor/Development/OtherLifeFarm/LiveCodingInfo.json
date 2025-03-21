@@ -27,6 +27,7 @@
 			"CTree.cpp.obj",
 			"CAnimInterface.cpp.obj",
 			"CFoodItemWidget.cpp.obj",
+			"CItemWidget.cpp.obj",
 			"CMakeFoodWidget.cpp.obj",
 			"CManageInventory.cpp.obj",
 			"FItemStruct.cpp.obj",
@@ -35,10 +36,9 @@
 			"OtherLifeFarmCharacter.cpp.obj",
 			"OtherLifeFarmGameMode.cpp.obj",
 			"OtherLifeFarmPlayerController.cpp.obj",
-			"CRake.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
 			"CInventory.cpp.obj",
-			"CItemWidget.cpp.obj"
+			"CRake.cpp.obj"
 		]
 	}
 }

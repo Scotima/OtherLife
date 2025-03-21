@@ -75,7 +75,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F9D5A9DB-183E-3665-BED1-B9D2A3FE42D7}</ProjectGuid>
+    <ProjectGuid>{ED9903F3-7614-3C41-87B0-7F119ED19E8D}</ProjectGuid>
     <RootNamespace>OtherLifeFarm</RootNamespace>
   </PropertyGroup>
   <Import Project="UECommon.props" />
@@ -262,7 +262,6 @@
     <None Include="..\..\Source\OtherLifeFarmEditor.Target.cs"/>
     <None Include="..\..\.gitignore"/>
     <None Include="..\..\.vsconfig"/>
-    <None Include="..\..\Content.zip"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>

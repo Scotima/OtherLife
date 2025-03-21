@@ -21,7 +21,7 @@ public:
 	void SetZorder();
 
 	UFUNCTION(BlueprintCallable)
-	FItemStruct GetItemData(int32 a);
+	void SetItemDataCount(int32 a, UPARAM(ref)FItemStruct& item);
 
 	void SetInventoryOpen(bool a) { bIsInventoryOpen = a; }
 
