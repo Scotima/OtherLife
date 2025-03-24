@@ -47,6 +47,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void PickupItem(FItemStruct NewItem);
 
+	void Setshouldmove(bool a) { shouldmove = a; }
+
 
 protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
@@ -101,5 +103,6 @@ public:
 private:
 	int32 ItemIndex;
 
+	bool shouldmove;
 	
 };

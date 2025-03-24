@@ -9,6 +9,7 @@
 #include "Grain/CRice.h"
 
 
+
 ACRake::ACRake()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -23,12 +24,13 @@ ACRake::ACRake()
 		RakeMesh->SetStaticMesh(RakeMeshAsset.Object);
 	}
 
-	//static ConstructorHelpers::FObjectFinder<UAnimMontage> RakeAssetMontageClass(TEXT("/Game/FarmGame/BPCharacter/CharacterAsset/Boy/Anim/BOY_Farmer_work_Hoe_Montage"));
+	ConstructorHelpers::FObjectFinder<UAnimMontage> RakeAssetMontageClass(TEXT("/Game/FarmGame/BPCharacter/CharacterAsset/Boy/Anim/BOY_Farmer_work_Hoe_Montage"));
 
-	//if (RakeAssetMontageClass.Succeeded())
-	//{
-	//	RakeAssetMontage = RakeAssetMontageClass.Object;
-	//}
+	if (RakeAssetMontageClass.Succeeded())
+	{
+		RakeAssetMontage = RakeAssetMontageClass.Object;
+	}
+	
 	
 
 	HandSocket = "hand_rsocket";
@@ -38,6 +40,8 @@ ACRake::ACRake()
 void ACRake::BeginPlay()
 {
 	Super::BeginPlay();
+
+	
 
 	Character = Cast<ACCharacter>(GetOwner());
 
@@ -74,9 +78,14 @@ void ACRake::Plowing()
 	}
 	if (Character->playanim == true)
 	{
+		
 		OwnerCharacter->PlayAnimMontage(RakeAssetMontage);
 		TurnToMouse();
 		SweepSingleByChannel();
+		
+
+		
+		
 		
 		
 	}
@@ -234,4 +243,5 @@ void ACRake::DetachFromOwner()
 
 
 }
+
 

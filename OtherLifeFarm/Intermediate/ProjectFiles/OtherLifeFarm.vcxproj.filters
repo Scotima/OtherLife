@@ -61,6 +61,27 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\OtherLifeFarmPlayerController.h">
       <Filter>Source\OtherLifeFarm</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\.vs">
+      <UniqueIdentifier>{EB577D9A-24A1-39D7-9C02-8D37E90E7138}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\OtherLifeFarm\.vs\slnx.sqlite">
+      <Filter>Source\OtherLifeFarm\.vs</Filter>
+    </None>
+    <Filter Include="Source\OtherLifeFarm\AnimNotify">
+      <UniqueIdentifier>{8340EA9C-E78E-379E-9B37-F89963C12AD3}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CMoveNotify.cpp">
+      <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CMoveNotify.h">
+      <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CStopNotify.cpp">
+      <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CStopNotify.h">
+      <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\FarmCharacter">
       <UniqueIdentifier>{073C646A-54E5-3586-8B25-DA51863D9387}</UniqueIdentifier>
     </Filter>
@@ -159,6 +180,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\Items\CItem.h">
       <Filter>Source\OtherLifeFarm\Items</Filter>
+    </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\StoreWidget">
+      <UniqueIdentifier>{C266B6C0-BA5A-3C3D-AEAC-6B04E62CD140}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\StoreWidget\CStoreWidget.cpp">
+      <Filter>Source\OtherLifeFarm\StoreWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\StoreWidget\CStoreWidget.h">
+      <Filter>Source\OtherLifeFarm\StoreWidget</Filter>
     </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Tools">
       <UniqueIdentifier>{F6C0E4BE-7050-3276-B68E-A8CF12187A79}</UniqueIdentifier>
