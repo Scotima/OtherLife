@@ -7,6 +7,7 @@
 #include "CStoreWidget.generated.h"
 
 class UCFoodItemWidget;
+class ACCharacter;
 
 UCLASS()
 class OTHERLIFEFARM_API UCStoreWidget : public UUserWidget
@@ -16,11 +17,22 @@ class OTHERLIFEFARM_API UCStoreWidget : public UUserWidget
 private:
 	virtual void NativeConstruct() override;
 
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "store")
+	void Sell(FItemStruct& fooditem);
+
+	UFUNCTION(BlueprintCallable, Category = "Inven")
+	void StoreInven();
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "store")
-	TArray<UCFoodItemWidget* > FoodItemArray;
+	TArray<UCFoodItemWidget*> FoodItemArray;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Data", meta = (AllowPrivateAccess = "true"))
+	UDataTable* FoodorItemData;
+
 
 private:
-	TArray<FItemStruct> FoodData;
-
+	TArray<FItemStruct*> FoodData;
+	ACCharacter* character;
 };

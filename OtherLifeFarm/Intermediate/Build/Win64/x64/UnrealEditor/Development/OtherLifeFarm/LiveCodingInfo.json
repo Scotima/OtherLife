@@ -23,6 +23,8 @@
 			"OtherLifeFarmGameMode.gen.cpp.obj",
 			"OtherLifeFarmPlayerController.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
+			"CMoveNotify.cpp.obj",
+			"CStopNotify.cpp.obj",
 			"MyGameModeBase.cpp.obj",
 			"CGhostRice.cpp.obj",
 			"CRice.cpp.obj",
@@ -39,12 +41,10 @@
 			"OtherLifeFarmCharacter.cpp.obj",
 			"OtherLifeFarmGameMode.cpp.obj",
 			"OtherLifeFarmPlayerController.cpp.obj",
+			"CRake.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
-			"CMoveNotify.cpp.obj",
-			"CStopNotify.cpp.obj",
 			"CCharacter.cpp.obj",
-			"CStoreWidget.cpp.obj",
-			"CRake.cpp.obj"
+			"CStoreWidget.cpp.obj"
 		]
 	}
 }

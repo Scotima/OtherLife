@@ -30,12 +30,12 @@ public:
 
 private:
 	void MoveForward(float value);
+
 	void MoveRight(float value);
 
-
-	
-
 	void SetCustomMouseCursor();
+
+	int64 GetCoin() { return coin; }
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
@@ -104,5 +104,7 @@ private:
 	int32 ItemIndex;
 
 	bool shouldmove;
+
+	int64 coin;
 	
 };
