@@ -67,6 +67,15 @@
     <None Include="..\..\Source\OtherLifeFarm\.vs\slnx.sqlite">
       <Filter>Source\OtherLifeFarm\.vs</Filter>
     </None>
+    <Filter Include="Source\OtherLifeFarm\AnimInstance">
+      <UniqueIdentifier>{F2EC1414-4544-3BC3-8EF8-B9A28D63BB4D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimInstance\CNpconeAnimInstance.cpp">
+      <Filter>Source\OtherLifeFarm\AnimInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimInstance\CNpconeAnimInstance.h">
+      <Filter>Source\OtherLifeFarm\AnimInstance</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\AnimNotify">
       <UniqueIdentifier>{8340EA9C-E78E-379E-9B37-F89963C12AD3}</UniqueIdentifier>
     </Filter>
@@ -89,6 +98,12 @@
       <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CCharacter.h">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CNpcone.cpp">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CNpcone.h">
       <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
     </ClCompile>
     <Filter Include="Source\OtherLifeFarm\GameMode">
@@ -131,6 +146,12 @@
       <Filter>Source\OtherLifeFarm\InterFace</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\InterFace\CAnimInterface.h">
+      <Filter>Source\OtherLifeFarm\InterFace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\InterFace\CCharacterInterFace.cpp">
+      <Filter>Source\OtherLifeFarm\InterFace</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\InterFace\CCharacterInterFace.h">
       <Filter>Source\OtherLifeFarm\InterFace</Filter>
     </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Inventory">

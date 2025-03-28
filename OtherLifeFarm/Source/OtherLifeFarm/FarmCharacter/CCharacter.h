@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Inventory/FItemStruct.h"
+#include "InterFace/CCharacterInterFace.h"
 #include "CCharacter.generated.h"
 
 class USpringArmComponent;
@@ -11,9 +12,10 @@ class ACRake;
 class UUserWidget;
 class UCManageInventory;
 class ACGhostRice;
+class ACNpcone;
 
 UCLASS()
-class OTHERLIFEFARM_API ACCharacter : public ACharacter
+class OTHERLIFEFARM_API ACCharacter : public ACharacter, public ICCharacterInterFace
 {
 	GENERATED_BODY()
 
@@ -35,7 +37,8 @@ private:
 
 	void SetCustomMouseCursor();
 
-	int64 GetCoin() { return coin; }
+	void DoLineTrace();
+
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
@@ -47,6 +50,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void PickupItem(FItemStruct NewItem);
 
+	UFUNCTION(BlueprintCallable, Category = "coin")
+	int64 GetCoin() { return coin; } // todo 상점 기능을 구현해보자
+
+	UFUNCTION(BlueprintCallable, Category = "Coin")
+	void SetCoin(int64 a) { coin += a; }
+	
+	UFUNCTION(BlueprintCallable, Category = "Coin")
+	void CameraOriginalPos();
+	
 	void Setshouldmove(bool a) { shouldmove = a; }
 
 
@@ -71,6 +83,9 @@ protected:
 
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<class UCItemWidget> InventoryWidgetClass;
+
+	UPROPERTY()
+	ACNpcone* LastInteractedNPC;
 
 
 	
@@ -105,6 +120,6 @@ private:
 
 	bool shouldmove;
 
-	int64 coin;
+	int64 coin = 0;
 	
 };

@@ -9,6 +9,7 @@
 #include "Inventory/CInventory.h"
 #include "Inventory/CItemWidget.h"
 #include "Kismet/GameplayStatics.h"
+#include "CNpcone.h"
 
 ACCharacter::ACCharacter()
 {
@@ -85,6 +86,7 @@ ACCharacter::ACCharacter()
 
 	ItemIndex = 0;
 
+	coin = 0;
 
 
 }
@@ -157,6 +159,8 @@ void ACCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	
 	PlayerInputComponent->BindAction("OpenSkillWindow", IE_Pressed, this, &ACCharacter::OpenWindowSkill);
 	PlayerInputComponent->BindAction("OpenInventory", IE_Pressed, this, &ACCharacter::OpenInventory);
+	
+	PlayerInputComponent->BindAction("Line", IE_Pressed, this, &ACCharacter::DoLineTrace);
 }
 
 void ACCharacter::MoveForward(float value)
@@ -265,5 +269,73 @@ void ACCharacter::SetCustomMouseCursor()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Custom Cursor WidgetAsset is null"));
 	}
+}
+
+void ACCharacter::DoLineTrace()
+{
+	FVector Start = GetActorLocation();
+	FVector Forward = GetActorForwardVector();
+
+	FVector End = Start + (Forward * 2000.0f);
+
+	TArray<FHitResult> hitresult;
+	FCollisionQueryParams params;
+
+	params.AddIgnoredActor(this);
+
+	bool bHit = GetWorld()->LineTraceMultiByChannel(hitresult, Start, End, ECC_Visibility, params);
+
+	if (bHit)
+	{
+		for (const FHitResult& Hit : hitresult)
+		{
+			AActor* HitActor = Hit.GetActor();
+			if (HitActor && HitActor->Implements<UCCharacterInterFace>())
+			{
+				UUserWidget* widget = ICCharacterInterFace::Execute_ShowWidget(HitActor);
+
+				if (widget && !widget->IsInViewport())
+				{
+					widget->AddToViewport();
+
+					APlayerController* PC = Cast<APlayerController>(GetController());
+					
+					if (ACNpcone* NPC = Cast<ACNpcone>(HitActor))
+					{
+
+
+						if (PC)
+						{
+							NPC->SetTalking(true);
+							PC->SetViewTargetWithBlend(HitActor, 1.0f, EViewTargetBlendFunction::VTBlend_Cubic);
+							LastInteractedNPC = NPC;
+						}
+					}
+					
+				}
+			}
+		}
+	}
+
+	DrawDebugLine(GetWorld(), Start, End, FColor::Cyan, false, 2.0f, 0, 2.0f);
+
+}
+
+void ACCharacter::CameraOriginalPos()
+{
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	
+	if (LastInteractedNPC)
+	{
+
+		if (PC)
+		{
+			PC->SetViewTargetWithBlend(this, 0.5f); // 카메라 원위치로 돌아오게 하는 기능
+			LastInteractedNPC->SetTalking(false);
+
+			LastInteractedNPC = nullptr;
+		}
+	}
+	
 }
 
