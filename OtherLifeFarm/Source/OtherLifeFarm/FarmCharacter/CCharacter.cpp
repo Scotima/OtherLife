@@ -212,12 +212,18 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 	{
 		if (CInventoryWidget)
 		{
-			
+
 			for (int i = 1; i < 9; i++)
 			{
 				int index = i - 1;
 				if (index < CInventoryWidget->Data.Num())
 				{
+					if (CInventoryWidget->Data[index].ItemName.Len() == 0)
+					{
+						CInventoryWidget->Data[index] = NewItem;
+						CInventoryWidget->SetInven(index);
+
+					}
 					if (NewItem.ItemName == CInventoryWidget->Data[index].ItemName)
 					{
 						CInventoryWidget->Data[index].ItemCount += NewItem.ItemCount;
@@ -231,12 +237,12 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 			CInventoryWidget->SetInven(ItemIndex);
 
 			ItemIndex++;
-			
+
 
 		}
-		
 
-		
+
+
 	}
 }
 
@@ -285,8 +291,15 @@ void ACCharacter::DoLineTrace()
 
 	bool bHit = GetWorld()->LineTraceMultiByChannel(hitresult, Start, End, ECC_Visibility, params);
 
+
+
 	if (bHit)
 	{
+		if (CurrentWidget && CurrentWidget->IsInViewport())
+		{
+			return;
+		}
+
 		for (const FHitResult& Hit : hitresult)
 		{
 			AActor* HitActor = Hit.GetActor();
@@ -294,25 +307,32 @@ void ACCharacter::DoLineTrace()
 			{
 				UUserWidget* widget = ICCharacterInterFace::Execute_ShowWidget(HitActor);
 
+			
+
+
 				if (widget && !widget->IsInViewport())
 				{
 					widget->AddToViewport();
+					CurrentWidget = widget;
+				}
 
-					APlayerController* PC = Cast<APlayerController>(GetController());
 					
 					if (ACNpcone* NPC = Cast<ACNpcone>(HitActor))
 					{
-
+						APlayerController* PC = Cast<APlayerController>(GetController());
 
 						if (PC)
 						{
 							NPC->SetTalking(true);
 							PC->SetViewTargetWithBlend(HitActor, 1.0f, EViewTargetBlendFunction::VTBlend_Cubic);
 							LastInteractedNPC = NPC;
+							this->GetCharacterMovement()->SetMovementMode((MOVE_None));
+							
 						}
 					}
 					
-				}
+				
+				break;
 			}
 		}
 	}
@@ -324,6 +344,11 @@ void ACCharacter::DoLineTrace()
 void ACCharacter::CameraOriginalPos()
 {
 	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+
+	if (CurrentWidget)
+	{
+		CurrentWidget = nullptr;
+	}
 	
 	if (LastInteractedNPC)
 	{
@@ -334,6 +359,7 @@ void ACCharacter::CameraOriginalPos()
 			LastInteractedNPC->SetTalking(false);
 
 			LastInteractedNPC = nullptr;
+			this->GetCharacterMovement()->SetMovementMode(MOVE_Walking);
 		}
 	}
 	

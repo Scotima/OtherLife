@@ -101,6 +101,9 @@ private:
 	UPROPERTY()
 	UCItemWidget* ManageInventoryWidget;
 
+	UPROPERTY()
+	UUserWidget* CurrentWidget = nullptr;
+
 	
 	
 public:

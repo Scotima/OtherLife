@@ -26,13 +26,16 @@
 			"OtherLifeFarmGameMode.gen.cpp.obj",
 			"OtherLifeFarmPlayerController.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
+			"CNpconeAnimInstance.cpp.obj",
 			"CMoveNotify.cpp.obj",
 			"CStopNotify.cpp.obj",
+			"CNpcone.cpp.obj",
 			"MyGameModeBase.cpp.obj",
 			"CGhostRice.cpp.obj",
 			"CRice.cpp.obj",
 			"CTree.cpp.obj",
 			"CAnimInterface.cpp.obj",
+			"CCharacterInterFace.cpp.obj",
 			"CFoodItemWidget.cpp.obj",
 			"CInventory.cpp.obj",
 			"CItemWidget.cpp.obj",
@@ -47,10 +50,7 @@
 			"CStoreWidget.cpp.obj",
 			"CRake.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
-			"CNpconeAnimInstance.cpp.obj",
-			"CCharacter.cpp.obj",
-			"CNpcone.cpp.obj",
-			"CCharacterInterFace.cpp.obj"
+			"CCharacter.cpp.obj"
 		]
 	}
 }
