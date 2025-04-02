@@ -10,6 +10,7 @@
 #include "Inventory/CItemWidget.h"
 #include "Kismet/GameplayStatics.h"
 #include "CNpcone.h"
+#include "GameInstance/CGameInstance.h"
 
 ACCharacter::ACCharacter()
 {
@@ -86,7 +87,7 @@ ACCharacter::ACCharacter()
 
 	ItemIndex = 0;
 
-	coin = 0;
+	
 
 
 }
@@ -118,6 +119,8 @@ void ACCharacter::BeginPlay()
 		{
 			CInventoryWidget->AddToViewport();
 			CInventoryWidget->SetVisibility(ESlateVisibility::Hidden);
+
+			CInventoryWidget->LoadInventory();
 		}
 	}
 
@@ -134,6 +137,12 @@ void ACCharacter::BeginPlay()
 			ManageInventoryWidget->SetVisibility(ESlateVisibility::Visible);
 		}
 
+	}
+
+	UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
+	if (mygameinstance)
+	{
+		coin = mygameinstance->coin;
 	}
 
 	
@@ -213,30 +222,34 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 		if (CInventoryWidget)
 		{
 
-			for (int i = 1; i < 9; i++)
-			{
-				int index = i - 1;
-				if (index < CInventoryWidget->Data.Num())
+			UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
+			if(mygameinstance)
+			{ 
+				for (int i = 1; i < 9; i++)
 				{
-					if (CInventoryWidget->Data[index].ItemName.Len() == 0)
+					int index = i - 1;
+					if (index < mygameinstance->Data.Num())
 					{
-						CInventoryWidget->Data[index] = NewItem;
-						CInventoryWidget->SetInven(index);
+						if (mygameinstance->Data[index].ItemName.Len() == 0)
+						{
+							mygameinstance ->Data[index] = NewItem;
+							CInventoryWidget->SetInven(index);
 
-					}
-					if (NewItem.ItemName == CInventoryWidget->Data[index].ItemName)
-					{
-						CInventoryWidget->Data[index].ItemCount += NewItem.ItemCount;
-						CInventoryWidget->SetInven(index);
-						return;
+						}
+						if (NewItem.ItemName == mygameinstance->Data[index].ItemName)
+						{
+							mygameinstance->Data[index].ItemCount += NewItem.ItemCount;
+							CInventoryWidget->SetInven(index);
+							return;
+						}
 					}
 				}
+
+				mygameinstance->AddData(NewItem);
+				CInventoryWidget->SetInven(ItemIndex);
+
+				ItemIndex++;
 			}
-
-			CInventoryWidget->SetData(NewItem);
-			CInventoryWidget->SetInven(ItemIndex);
-
-			ItemIndex++;
 
 
 		}
@@ -339,6 +352,18 @@ void ACCharacter::DoLineTrace()
 
 	DrawDebugLine(GetWorld(), Start, End, FColor::Cyan, false, 2.0f, 0, 2.0f);
 
+}
+
+void ACCharacter::SetCoin(int64 a)
+{
+	UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
+
+	if (mygameinstance)
+	{
+		mygameinstance->coin += a;
+
+		coin = mygameinstance->coin;
+	}
 }
 
 void ACCharacter::CameraOriginalPos()

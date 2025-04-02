@@ -6,6 +6,7 @@
 			"CCharacter.gen.cpp.obj",
 			"CCharacterInterFace.gen.cpp.obj",
 			"CFoodItemWidget.gen.cpp.obj",
+			"CGameInstance.gen.cpp.obj",
 			"CGhostRice.gen.cpp.obj",
 			"CInventory.gen.cpp.obj",
 			"CItem.gen.cpp.obj",
@@ -37,7 +38,6 @@
 			"CAnimInterface.cpp.obj",
 			"CCharacterInterFace.cpp.obj",
 			"CFoodItemWidget.cpp.obj",
-			"CInventory.cpp.obj",
 			"CItemWidget.cpp.obj",
 			"CMakeFoodWidget.cpp.obj",
 			"CManageInventory.cpp.obj",
@@ -50,7 +50,9 @@
 			"CStoreWidget.cpp.obj",
 			"CRake.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
-			"CCharacter.cpp.obj"
+			"CCharacter.cpp.obj",
+			"CGameInstance.cpp.obj",
+			"CInventory.cpp.obj"
 		]
 	}
 }

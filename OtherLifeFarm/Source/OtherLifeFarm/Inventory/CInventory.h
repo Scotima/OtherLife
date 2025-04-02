@@ -23,18 +23,24 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetItemDataCount(int32 a, UPARAM(ref)FItemStruct& item);
 
+	UFUNCTION(BlueprintCallable)
+	void LoadInventory();
+
+public:
+
 	void SetInventoryOpen(bool a) { bIsInventoryOpen = a; }
 
 	bool GetInventoryOpen() { return bIsInventoryOpen; }
 
+public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory")
 	TArray<UCItemWidget*> Itemarray;
 	
-	UPROPERTY(BlueprintReadOnly, Category = "Inventory")
-	TArray<FItemStruct> Data;
+	//UPROPERTY(BlueprintReadOnly, Category = "Inventory")
+	//TArray<FItemStruct> Data;
 	
 public:
-	void SetData(const FItemStruct& a) { Data.Add(a); }
+	//void SetData(const FItemStruct& a) { Data.Add(a); }
 	void SetInven(int32 a);
 
 	

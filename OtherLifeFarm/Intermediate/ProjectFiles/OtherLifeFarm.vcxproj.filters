@@ -106,6 +106,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CNpcone.h">
       <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\GameInstance">
+      <UniqueIdentifier>{33AA9835-241F-3573-A050-58A96C7641E5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\GameInstance\CGameInstance.cpp">
+      <Filter>Source\OtherLifeFarm\GameInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\GameInstance\CGameInstance.h">
+      <Filter>Source\OtherLifeFarm\GameInstance</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\GameMode">
       <UniqueIdentifier>{208E3053-5D91-3798-ACAB-57A8B06D6F52}</UniqueIdentifier>
     </Filter>

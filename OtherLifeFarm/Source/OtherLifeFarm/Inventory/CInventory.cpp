@@ -5,6 +5,7 @@
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "CItemWidget.h"
 #include "Components/CanvasPanelSlot.h"
+#include "GameInstance/CGameInstance.h"
 
 void UCInventory::ToggleInventory()
 {
@@ -35,21 +36,45 @@ void UCInventory::SetZorder()
 
 void UCInventory::SetItemDataCount(int32 a, UPARAM(ref)FItemStruct& item)
 {
-    if (Data.IsValidIndex(a))
-    {
-        Data[a] = item;
+    UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
 
-        SetInven(a);
+    if (mygameinstance)
+    {
+        if (mygameinstance->Data.IsValidIndex(a))
+        {
+            mygameinstance->Data[a] = item;
+            SetInven(a);
+        }
     }
+
 
    
 }
 
+void UCInventory::LoadInventory()
+{
+    UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
+
+    if (mygameinstance)
+    {
+        int DataNum = mygameinstance->Data.Num();
+        for (int i = 0; i < DataNum; i++)
+        {
+            Itemarray[i]->SetItemData(mygameinstance->Data[i]);
+        }
+    }
+}
+
 void UCInventory::SetInven(int32 a)
 {
+    UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
     
+    if (mygameinstance)
+    {
+        Itemarray[a]->SetItemData(mygameinstance->Data[a]);
+
+    }
     
-    Itemarray[a]->SetItemData(Data[a]);
     
 }
 

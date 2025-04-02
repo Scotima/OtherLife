@@ -54,7 +54,7 @@ public:
 	int64 GetCoin() { return coin; } // todo 상점 기능을 구현해보자
 
 	UFUNCTION(BlueprintCallable, Category = "Coin")
-	void SetCoin(int64 a) { coin += a; }
+	void SetCoin(int64 a);
 	
 	UFUNCTION(BlueprintCallable, Category = "Coin")
 	void CameraOriginalPos();
@@ -123,6 +123,6 @@ private:
 
 	bool shouldmove;
 
-	int64 coin = 0;
+	int64 coin;
 	
 };
