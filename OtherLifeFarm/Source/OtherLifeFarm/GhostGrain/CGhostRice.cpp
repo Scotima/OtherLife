@@ -49,7 +49,12 @@ void ACGhostRice::BeginPlay()
 		PlayerController->InputComponent->BindAction("Cancel", IE_Pressed, this, &ACGhostRice::Cancel);
 	}
 
+
+	
+
 	character = Cast<ACCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+
+
 
 	
 }
@@ -95,6 +100,9 @@ void ACGhostRice::RealSpawnRice()
 	if (World)
 	{
 		World->SpawnActor<ACRice>(RiceClass, GetActorLocation(), FRotator::ZeroRotator);
+
+
+
 	}
 
 	

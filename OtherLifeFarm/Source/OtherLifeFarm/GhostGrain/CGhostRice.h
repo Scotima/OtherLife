@@ -54,6 +54,7 @@ private:
 
 private:
 	ACCharacter* character;
+
 	
 
 	

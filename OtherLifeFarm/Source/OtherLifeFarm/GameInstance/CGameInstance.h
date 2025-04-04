@@ -6,12 +6,18 @@
 #include "Inventory/FItemStruct.h"
 #include "CGameInstance.generated.h"
 
-class UCInventory;
+struct FCRiceStruct;
 
+class UCInventory;
+class UCFarmGameSave;
 UCLASS()
 class OTHERLIFEFARM_API UCGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
+
+public:
+
+	UCGameInstance();
 
 
 public:
@@ -25,10 +31,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "FItemStructData")
 	void AddData(FItemStruct item);
 
+private:
+	TArray<FCRiceStruct> SavedCrops;
 
-
-
-
+public:
+	void AddCrop(FCRiceStruct* item);
 
 
 

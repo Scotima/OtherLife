@@ -211,6 +211,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Items\CItem.h">
       <Filter>Source\OtherLifeFarm\Items</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\SaveGame">
+      <UniqueIdentifier>{5E84D87A-5EB8-3085-98FF-8A7B03C58D07}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\SaveGame\CFarmGameSave.cpp">
+      <Filter>Source\OtherLifeFarm\SaveGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\SaveGame\CFarmGameSave.h">
+      <Filter>Source\OtherLifeFarm\SaveGame</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\StoreWidget">
       <UniqueIdentifier>{C266B6C0-BA5A-3C3D-AEAC-6B04E62CD140}</UniqueIdentifier>
     </Filter>
@@ -219,6 +228,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\StoreWidget\CStoreWidget.h">
       <Filter>Source\OtherLifeFarm\StoreWidget</Filter>
+    </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\Struct">
+      <UniqueIdentifier>{D197ECE7-2465-35F1-8306-A817765E242C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Struct\CRiceStruct.cpp">
+      <Filter>Source\OtherLifeFarm\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Struct\CRiceStruct.h">
+      <Filter>Source\OtherLifeFarm\Struct</Filter>
     </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Tools">
       <UniqueIdentifier>{F6C0E4BE-7050-3276-B68E-A8CF12187A79}</UniqueIdentifier>

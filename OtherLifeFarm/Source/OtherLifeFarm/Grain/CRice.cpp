@@ -1,6 +1,8 @@
 #include "Grain/CRice.h"
 #include "FarmCharacter/CCharacter.h"
+#include "SaveGame/CFarmGameSave.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameInstance/CGameInstance.h"
 
 ACRice::ACRice()
 {
@@ -38,12 +40,71 @@ void ACRice::BeginPlay()
 	Super::BeginPlay();
 	
 	GetWorldTimerManager().SetTimer(ChangeMeshTimerHandle, this, &ACRice::GrowRice, 2.0f, true);
+	//LoadRiceData();
+
+	//SaveRiceData();
 }
 
 void ACRice::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ACRice::SaveRiceData()
+{
+	UCGameInstance* gameinstance = Cast<UCGameInstance>(GetGameInstance());
+
+	if (gameinstance)
+	{
+
+		ricedata.CropLocation = GetActorLocation();
+		ricedata.GrowthStage = CurrentMeshIndex;
+		gameinstance->AddCrop(&ricedata);
+
+
+
+	}
+	
+
+
+
+
+
+
+}
+
+void ACRice::LoadRiceData()
+{
+
+	UCFarmGameSave* LoadedGame = Cast<UCFarmGameSave>(UGameplayStatics::LoadGameFromSlot(TEXT("MySaveSlot"), 0));
+	UWorld* world = GetWorld();
+	if (LoadedGame)
+	{
+		if(world)
+		{ 
+			for (auto crop : LoadedGame->SavedCrops)
+			{
+				FActorSpawnParameters SpawnParams;
+				SpawnParams.Owner = this;
+
+				ACRice* spawnrice = world->SpawnActor<ACRice>(ACRice::StaticClass(), crop.CropLocation, FRotator::ZeroRotator, SpawnParams);
+				//SetActorLocation(crop.CropLocation);
+
+				if (spawnrice)
+				{
+					SetCurrentMeshIndex(crop.GrowthStage);
+					RiceMesh->SetStaticMesh(RiceMeshs[CurrentMeshIndex]);
+					SetGrowing();
+
+				}
+				
+
+				
+
+			}
+		}
+	}
 }
 
 void ACRice::GoToInventory()
@@ -63,6 +124,11 @@ void ACRice::SetGrowing()
 
 void ACRice::GrowRice()
 {
+	
+
+
+
+
 
 	if (RiceMeshs.Num() == 0 || !RiceMeshs.IsValidIndex(CurrentMeshIndex))
 	{
@@ -73,6 +139,8 @@ void ACRice::GrowRice()
 	}
 
 	RiceMesh->SetStaticMesh(RiceMeshs[CurrentMeshIndex]);
+
+	SaveRiceData();
 
 	CurrentMeshIndex++;
 

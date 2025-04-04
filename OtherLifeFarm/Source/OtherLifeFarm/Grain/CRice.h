@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Inventory/FItemStruct.h"
+#include "Struct/CRiceStruct.h"
 #include "CRice.generated.h"
 
 UCLASS()
@@ -31,6 +32,15 @@ public:
 
 
 public:
+
+	UFUNCTION(BlueprintCallable, Category = "Save")
+	void SaveRiceData();
+
+	UFUNCTION(BlueprintCallable, Category = "Save")
+	void LoadRiceData();
+
+
+public:
 	void GoToInventory();
 
 	void SetGrowing();
@@ -53,6 +63,8 @@ public:
 private:
 	int32 CurrentMeshIndex;
 	FTimerHandle ChangeMeshTimerHandle;
+
+	FCRiceStruct ricedata;
 
 
 };
