@@ -45,6 +45,8 @@ public:
 
 	void SetGrowing();
 
+	void RemoveMe();
+
 private:
 	UFUNCTION()
 	void GrowRice();
@@ -60,11 +62,14 @@ public:
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Item")
 	FItemStruct ItemData;
 
+	void SpawnSetting(int32 GrowthStage);
+
 private:
 	int32 CurrentMeshIndex;
 	FTimerHandle ChangeMeshTimerHandle;
 
 	FCRiceStruct ricedata;
 
+	
 
 };

@@ -59,7 +59,9 @@ void ACRice::SaveRiceData()
 	{
 
 		ricedata.CropLocation = GetActorLocation();
-		ricedata.GrowthStage = CurrentMeshIndex;
+		
+		ricedata.GrowthStage = FMath::Clamp(CurrentMeshIndex, 0, RiceMeshs.Num() - 1);
+		
 		gameinstance->AddCrop(&ricedata);
 
 
@@ -77,34 +79,42 @@ void ACRice::SaveRiceData()
 void ACRice::LoadRiceData()
 {
 
-	UCFarmGameSave* LoadedGame = Cast<UCFarmGameSave>(UGameplayStatics::LoadGameFromSlot(TEXT("MySaveSlot"), 0));
-	UWorld* world = GetWorld();
-	if (LoadedGame)
+	//UCFarmGameSave* LoadedGame = Cast<UCFarmGameSave>(UGameplayStatics::LoadGameFromSlot(TEXT("MySaveSlot"), 0));
+	//UWorld* world = GetWorld();
+	//if (LoadedGame)
+	//{
+	//	if(world)
+	//	{ 
+	//		for (auto crop : LoadedGame->SavedCrops)
+	//		{
+	//			FActorSpawnParameters SpawnParams;
+	//			SpawnParams.Owner = this;
+
+	//			ACRice* spawnrice = world->SpawnActor<ACRice>(ACRice::StaticClass(), crop.CropLocation, FRotator::ZeroRotator, SpawnParams);
+	//			//SetActorLocation(crop.CropLocation);
+
+	//			if (spawnrice)
+	//			{
+	//				SetCurrentMeshIndex(crop.GrowthStage);
+	//				RiceMesh->SetStaticMesh(RiceMeshs[CurrentMeshIndex]);
+	//				SetGrowing();
+
+	//			}
+	//			
+
+	//			
+
+	//		}
+	//	}
+	//}
+
+	/*UCGameInstance* gameinstance = Cast<UCGameInstance>(GetGameInstance());
+
+	if (gameinstance)
 	{
-		if(world)
-		{ 
-			for (auto crop : LoadedGame->SavedCrops)
-			{
-				FActorSpawnParameters SpawnParams;
-				SpawnParams.Owner = this;
+		gameinstance->LoadRiceData();
+	}*/
 
-				ACRice* spawnrice = world->SpawnActor<ACRice>(ACRice::StaticClass(), crop.CropLocation, FRotator::ZeroRotator, SpawnParams);
-				//SetActorLocation(crop.CropLocation);
-
-				if (spawnrice)
-				{
-					SetCurrentMeshIndex(crop.GrowthStage);
-					RiceMesh->SetStaticMesh(RiceMeshs[CurrentMeshIndex]);
-					SetGrowing();
-
-				}
-				
-
-				
-
-			}
-		}
-	}
 }
 
 void ACRice::GoToInventory()
@@ -122,12 +132,18 @@ void ACRice::SetGrowing()
 	GetWorldTimerManager().SetTimer(ChangeMeshTimerHandle, this, &ACRice::GrowRice, 2.0f, true);
 }
 
+void ACRice::RemoveMe()
+{
+	if (UCGameInstance* gameinstance = Cast<UCGameInstance>(GetGameInstance()))
+	{
+		gameinstance->RemoveCropByLocation(GetActorLocation());
+	}
+
+	Destroy();
+}
+
 void ACRice::GrowRice()
 {
-	
-
-
-
 
 
 	if (RiceMeshs.Num() == 0 || !RiceMeshs.IsValidIndex(CurrentMeshIndex))
@@ -140,7 +156,7 @@ void ACRice::GrowRice()
 
 	RiceMesh->SetStaticMesh(RiceMeshs[CurrentMeshIndex]);
 
-	SaveRiceData();
+		SaveRiceData();
 
 	CurrentMeshIndex++;
 
@@ -149,5 +165,13 @@ void ACRice::GrowRice()
 		GetWorldTimerManager().ClearTimer(ChangeMeshTimerHandle);
 		UE_LOG(LogTemp, Log, TEXT("Rice is fully grown! Timer Stopped."));
 	}
+}
+
+void ACRice::SpawnSetting(int32 GrowthStage)
+{
+	SetCurrentMeshIndex(GrowthStage);
+	RiceMesh->SetStaticMesh(RiceMeshs[GrowthStage]);
+	SetGrowing();
+	//CurrentMeshIndex = GrowthStage;
 }
 

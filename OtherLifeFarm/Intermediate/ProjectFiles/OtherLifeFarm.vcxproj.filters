@@ -211,6 +211,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Items\CItem.h">
       <Filter>Source\OtherLifeFarm\Items</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\PlayerController">
+      <UniqueIdentifier>{2571C1B7-11A8-3BD2-B2BE-22F6FE571678}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\PlayerController\CPlayerController.cpp">
+      <Filter>Source\OtherLifeFarm\PlayerController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\PlayerController\CPlayerController.h">
+      <Filter>Source\OtherLifeFarm\PlayerController</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\SaveGame">
       <UniqueIdentifier>{5E84D87A-5EB8-3085-98FF-8A7B03C58D07}</UniqueIdentifier>
     </Filter>

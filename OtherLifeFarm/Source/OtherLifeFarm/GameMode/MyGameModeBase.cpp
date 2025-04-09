@@ -1,6 +1,6 @@
 
-
 #include "GameMode/MyGameModeBase.h"
+#include "PlayerController/CPlayerController.h"
 
 AMyGameModeBase::AMyGameModeBase()
 {
@@ -8,5 +8,7 @@ AMyGameModeBase::AMyGameModeBase()
 	if (PlayerClass.Succeeded())
 	{
 		DefaultPawnClass = PlayerClass.Class;
+
+		PlayerControllerClass = ACPlayerController::StaticClass();
 	}
 }

@@ -3,7 +3,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "SaveGame/CFarmGameSave.h"
 #include "Struct/CRiceStruct.h"
-
+#include "Grain/CRice.h"
 UCGameInstance::UCGameInstance()
 {
 	
@@ -30,6 +30,7 @@ void UCGameInstance::AddCrop(FCRiceStruct* ricedata)
 
 	if (!bUpdated)
 	{
+		ricedata->Index = ++spawnindex;
 		SavedCrops.Add(*ricedata); // 새로운 위치일 경우만 추가
 	}
 
@@ -44,3 +45,44 @@ void UCGameInstance::AddCrop(FCRiceStruct* ricedata)
 	}
 }
 
+void UCGameInstance::LoadRiceData()
+{
+
+	UCFarmGameSave* LoadedGame = Cast<UCFarmGameSave>(UGameplayStatics::LoadGameFromSlot(TEXT("MySaveSlot"), 0));
+	UWorld* world = GetWorld();
+	if (LoadedGame)
+	{
+		if (world)
+		{
+			for (auto crop : LoadedGame->SavedCrops)
+			{
+				FActorSpawnParameters SpawnParams;
+
+				ACRice* spawnrice = world->SpawnActor<ACRice>(ACRice::StaticClass(), crop.CropLocation, FRotator::ZeroRotator, SpawnParams);
+				//SetActorLocation(crop.CropLocation);
+
+				if (spawnrice)
+				{
+					spawnrice->SpawnSetting(crop.GrowthStage);
+				}
+			}
+		}
+	}
+}
+
+void UCGameInstance::RemoveCropByLocation(FVector Location)
+{
+
+	for (int32 i = 0; i < SavedCrops.Num(); ++i)
+	{
+		if (FVector::Dist(SavedCrops[i].CropLocation, Location) < 10.0f)
+		{
+			SavedCrops.RemoveAt(i);
+			break;
+		}
+	}
+
+	UCFarmGameSave* SaveGameInstance = Cast<UCFarmGameSave>(UGameplayStatics::CreateSaveGameObject(UCFarmGameSave::StaticClass()));
+	SaveGameInstance->SavedCrops = SavedCrops;
+	UGameplayStatics::SaveGameToSlot(SaveGameInstance, TEXT("MySaveSlot"), 0);
+}

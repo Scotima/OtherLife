@@ -11,6 +11,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "CNpcone.h"
 #include "GameInstance/CGameInstance.h"
+#include "Grain/CRice.h"
+
 
 ACCharacter::ACCharacter()
 {
@@ -389,4 +391,7 @@ void ACCharacter::CameraOriginalPos()
 	}
 	
 }
+
+
+
 

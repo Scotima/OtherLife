@@ -17,6 +17,7 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Crop")
 	int32 GrowthStage;
 
+	int32 Index;
 	
 	FCRiceStruct()
 	:CropLocation(FVector::ZeroVector)

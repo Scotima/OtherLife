@@ -58,6 +58,8 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "Coin")
 	void CameraOriginalPos();
+
+
 	
 	void Setshouldmove(bool a) { shouldmove = a; }
 

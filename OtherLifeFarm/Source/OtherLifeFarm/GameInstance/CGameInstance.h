@@ -27,16 +27,23 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Coin")
 	int64 coin = 0;
 
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsDestroyMode = false;
+
 public:
 	UFUNCTION(BlueprintCallable, Category = "FItemStructData")
 	void AddData(FItemStruct item);
 
+	UFUNCTION(BlueprintCallable, Category = "LoadData")
+	void LoadRiceData();
+
+	UFUNCTION(BlueprintCallable, Category = "Delete")
+	void RemoveCropByLocation(FVector Location);
 private:
 	TArray<FCRiceStruct> SavedCrops;
-
+	int32 spawnindex = 0;
 public:
 	void AddCrop(FCRiceStruct* item);
-
 
 
 	

@@ -31,7 +31,7 @@ ACRake::ACRake()
 		RakeAssetMontage = RakeAssetMontageClass.Object;
 	}
 	
-	
+	//RakeMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 	HandSocket = "hand_rsocket";
 
