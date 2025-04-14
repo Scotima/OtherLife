@@ -50,20 +50,26 @@ void UCGameInstance::LoadRiceData()
 
 	UCFarmGameSave* LoadedGame = Cast<UCFarmGameSave>(UGameplayStatics::LoadGameFromSlot(TEXT("MySaveSlot"), 0));
 	UWorld* world = GetWorld();
+
 	if (LoadedGame)
 	{
 		if (world)
 		{
 			for (auto crop : LoadedGame->SavedCrops)
 			{
-				FActorSpawnParameters SpawnParams;
+				UClass* RiceClass = crop.RiceClass.TryLoadClass<ACRice>();
 
-				ACRice* spawnrice = world->SpawnActor<ACRice>(ACRice::StaticClass(), crop.CropLocation, FRotator::ZeroRotator, SpawnParams);
-				//SetActorLocation(crop.CropLocation);
-
-				if (spawnrice)
+				if (RiceClass)
 				{
-					spawnrice->SpawnSetting(crop.GrowthStage);
+
+					FActorSpawnParameters SpawnParams;
+
+					ACRice* spawnrice = world->SpawnActor<ACRice>(RiceClass, crop.CropLocation, FRotator::ZeroRotator, SpawnParams);
+
+					if (spawnrice)
+					{
+						spawnrice->SpawnSetting(crop.GrowthStage);
+					}
 				}
 			}
 		}

@@ -59,6 +59,8 @@ void ACRice::SaveRiceData()
 	{
 
 		ricedata.CropLocation = GetActorLocation();
+
+		ricedata.RiceClass = GetClass();
 		
 		ricedata.GrowthStage = FMath::Clamp(CurrentMeshIndex, 0, RiceMeshs.Num() - 1);
 		

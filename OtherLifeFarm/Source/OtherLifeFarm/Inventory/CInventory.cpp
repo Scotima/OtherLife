@@ -71,8 +71,11 @@ void UCInventory::SetInven(int32 a)
     
     if (mygameinstance)
     {
-        Itemarray[a]->SetItemData(mygameinstance->Data[a]);
+        for (int i = 0; i < mygameinstance->Data.Num(); i++)
+        {
+            Itemarray[i]->SetItemData(mygameinstance->Data[i]);
 
+        }
     }
     
     

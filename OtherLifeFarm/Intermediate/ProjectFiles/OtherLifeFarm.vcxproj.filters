@@ -34,6 +34,12 @@
     <Filter Include="Source\OtherLifeFarm">
       <UniqueIdentifier>{C5631243-547B-31A0-855C-9429749EE85A}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\OpenAIChatManager.cpp">
+      <Filter>Source\OtherLifeFarm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\OpenAIChatManager.h">
+      <Filter>Source\OtherLifeFarm</Filter>
+    </ClCompile>
     <None Include="..\..\Source\OtherLifeFarm\OtherLifeFarm.Build.cs">
       <Filter>Source\OtherLifeFarm</Filter>
     </None>
@@ -90,6 +96,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CStopNotify.h">
       <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
+    </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\CustomTask">
+      <UniqueIdentifier>{23FDCBAE-7641-3C18-89BA-590C2C5370A2}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_GetRandomLocation.cpp">
+      <Filter>Source\OtherLifeFarm\CustomTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_GetRandomLocation.h">
+      <Filter>Source\OtherLifeFarm\CustomTask</Filter>
     </ClCompile>
     <Filter Include="Source\OtherLifeFarm\FarmCharacter">
       <UniqueIdentifier>{073C646A-54E5-3586-8B25-DA51863D9387}</UniqueIdentifier>
@@ -210,6 +225,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\Items\CItem.h">
       <Filter>Source\OtherLifeFarm\Items</Filter>
+    </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\NPCController">
+      <UniqueIdentifier>{68D3FA59-F368-3789-A722-E4208BC7FD86}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\NPCController\CNPCController.cpp">
+      <Filter>Source\OtherLifeFarm\NPCController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\NPCController\CNPCController.h">
+      <Filter>Source\OtherLifeFarm\NPCController</Filter>
     </ClCompile>
     <Filter Include="Source\OtherLifeFarm\PlayerController">
       <UniqueIdentifier>{2571C1B7-11A8-3BD2-B2BE-22F6FE571678}</UniqueIdentifier>

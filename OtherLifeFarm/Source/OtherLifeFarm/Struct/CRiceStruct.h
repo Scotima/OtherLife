@@ -17,6 +17,9 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Crop")
 	int32 GrowthStage;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FSoftClassPath RiceClass;
+
 	int32 Index;
 	
 	FCRiceStruct()

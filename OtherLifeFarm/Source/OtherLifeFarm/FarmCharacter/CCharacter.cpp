@@ -236,6 +236,7 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 						{
 							mygameinstance ->Data[index] = NewItem;
 							CInventoryWidget->SetInven(index);
+							return;
 
 						}
 						if (NewItem.ItemName == mygameinstance->Data[index].ItemName)
