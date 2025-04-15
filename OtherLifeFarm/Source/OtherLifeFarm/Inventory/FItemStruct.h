@@ -21,11 +21,14 @@ public:
 
 	
 
+	
+
 	FItemStruct()
 	{
 		ItemName = nullptr;
 		ItemIcon = nullptr;
 		ItemCount = 0;
+		
 
 	}
 };

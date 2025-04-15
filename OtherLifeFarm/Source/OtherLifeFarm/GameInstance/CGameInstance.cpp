@@ -4,9 +4,16 @@
 #include "SaveGame/CFarmGameSave.h"
 #include "Struct/CRiceStruct.h"
 #include "Grain/CRice.h"
+#include "TimerManager.h" 
 UCGameInstance::UCGameInstance()
 {
 	
+}
+
+void UCGameInstance::Init()
+{
+	Super::Init();
+	StartPriceTimer();
 }
 
 void UCGameInstance::AddData(FItemStruct item)
@@ -91,4 +98,29 @@ void UCGameInstance::RemoveCropByLocation(FVector Location)
 	UCFarmGameSave* SaveGameInstance = Cast<UCFarmGameSave>(UGameplayStatics::CreateSaveGameObject(UCFarmGameSave::StaticClass()));
 	SaveGameInstance->SavedCrops = SavedCrops;
 	UGameplayStatics::SaveGameToSlot(SaveGameInstance, TEXT("MySaveSlot"), 0);
+}
+
+void UCGameInstance::StartPriceTimer()
+{
+	RemainingTime = 1800.0f;
+
+	GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &UCGameInstance::UpdateTimer, 1.0f, true);
+}
+
+void UCGameInstance::UpdateTimer()
+{
+	RemainingTime -= 1.0f;
+
+	if (RemainingTime <= 0.0f)
+	{
+		RemainingTime = 1800.0f;
+		RefreshPrices();
+	}
+}
+
+void UCGameInstance::RefreshPrices()
+{
+	CurrentPrices.Add(FMath::RandRange(1000, 3000));
+	CurrentPrices.Add(FMath::RandRange(1000, 3000));
+	CurrentPrices.Add(FMath::RandRange(1000, 3000));
 }

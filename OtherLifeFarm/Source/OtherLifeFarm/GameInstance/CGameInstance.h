@@ -10,6 +10,8 @@ struct FCRiceStruct;
 
 class UCInventory;
 class UCFarmGameSave;
+
+
 UCLASS()
 class OTHERLIFEFARM_API UCGameInstance : public UGameInstance
 {
@@ -19,6 +21,7 @@ public:
 
 	UCGameInstance();
 
+	virtual void Init() override;
 
 public:
 	UPROPERTY(BlueprintReadWrite, Category = "FItemStructData")
@@ -30,6 +33,11 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsDestroyMode = false;
 
+	UPROPERTY(BlueprintReadOnly)
+	float RemainingTime;
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<int64> CurrentPrices;
 public:
 	UFUNCTION(BlueprintCallable, Category = "FItemStructData")
 	void AddData(FItemStruct item);
@@ -39,9 +47,21 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Delete")
 	void RemoveCropByLocation(FVector Location);
+
+	UFUNCTION(BlueprintCallable, Category = "Timer")
+	void StartPriceTimer();
+
+	UFUNCTION(BlueprintCallable, Category = "Timer")
+	void UpdateTimer();
+
+private:
+	UFUNCTION()
+	void RefreshPrices();
 private:
 	TArray<FCRiceStruct> SavedCrops;
 	int32 spawnindex = 0;
+	FTimerHandle TimerHandle;
+
 public:
 	void AddCrop(FCRiceStruct* item);
 
