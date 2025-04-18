@@ -112,7 +112,7 @@ void ACRake::SweepSingleByChannel()
 
 
 	bool bHit = UKismetSystemLibrary::SphereTraceMulti(
-		GetWorld(), End, End, SphereRadius, UEngineTypes::ConvertToTraceType(ECC_Visibility), false, ActorsToIgnore,
+		GetWorld(), End, End, SphereRadius, UEngineTypes::ConvertToTraceType(ECC_GameTraceChannel2), false, ActorsToIgnore,
 		EDrawDebugTrace::ForDuration, HitResult, true, FLinearColor::Red, FLinearColor::Green, 1.f);
 
 

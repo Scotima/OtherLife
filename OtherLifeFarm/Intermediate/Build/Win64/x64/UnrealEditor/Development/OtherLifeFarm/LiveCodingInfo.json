@@ -45,13 +45,13 @@
 			"CTree.cpp.obj",
 			"CAnimInterface.cpp.obj",
 			"CCharacterInterFace.cpp.obj",
-			"CFoodItemWidget.cpp.obj",
 			"CInventory.cpp.obj",
 			"CItemWidget.cpp.obj",
-			"CMakeFoodWidget.cpp.obj",
 			"CManageInventory.cpp.obj",
+			"FItemStruct.cpp.obj",
 			"CItem.cpp.obj",
 			"CNPCController.cpp.obj",
+			"OpenAIChatManager.cpp.obj",
 			"OtherLifeFarm.cpp.obj",
 			"OtherLifeFarmCharacter.cpp.obj",
 			"OtherLifeFarmGameMode.cpp.obj",
@@ -60,11 +60,11 @@
 			"CFarmGameSave.cpp.obj",
 			"CStoreWidget.cpp.obj",
 			"CRiceStruct.cpp.obj",
-			"CRake.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
 			"CGameInstance.cpp.obj",
-			"FItemStruct.cpp.obj",
-			"OpenAIChatManager.cpp.obj"
+			"CFoodItemWidget.cpp.obj",
+			"CMakeFoodWidget.cpp.obj",
+			"CRake.cpp.obj"
 		]
 	}
 }

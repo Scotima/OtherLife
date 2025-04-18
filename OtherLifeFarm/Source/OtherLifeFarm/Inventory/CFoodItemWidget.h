@@ -21,7 +21,7 @@ public:
 	void NativeConstruct();
 
 	UFUNCTION(BlueprintCallable)
-	void SetItemData(FItemStruct& FoodData);
+	void SetItemData(const FItemStruct& FoodData);
 
 	UFUNCTION(BlueprintCallable)
 	void AddChildToPanel(UWidget* Widget);

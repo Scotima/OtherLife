@@ -14,6 +14,28 @@ void UCGameInstance::Init()
 {
 	Super::Init();
 	StartPriceTimer();
+	RefreshPrices();
+
+	FoodDataTable = LoadObject<UDataTable>(this, TEXT("/Game/FarmGame/DataTable/DT_Food"));
+
+	if (FoodDataTable)
+	{
+		TArray<FItemStruct*> TempRows;
+
+		FoodDataTable->GetAllRows<FItemStruct>(TEXT("FoodTableLoad"), TempRows);
+
+		CachedFoodData.Empty();
+
+		for (FItemStruct* Row : TempRows)
+		{
+			CachedFoodData.Add(*Row);
+		}
+	}
+
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load FoodDataTable in GameInstance"));
+	}
 }
 
 void UCGameInstance::AddData(FItemStruct item)
@@ -50,6 +72,11 @@ void UCGameInstance::AddCrop(FCRiceStruct* ricedata)
 	{
 		UGameplayStatics::SaveGameToSlot(SaveGameInstance, TEXT("MySaveSlot"), 0);
 	}
+}
+
+const TArray<FItemStruct>& UCGameInstance::GetFoodData() const
+{
+	 return CachedFoodData;
 }
 
 void UCGameInstance::LoadRiceData()
@@ -123,4 +150,8 @@ void UCGameInstance::RefreshPrices()
 	CurrentPrices.Add(FMath::RandRange(1000, 3000));
 	CurrentPrices.Add(FMath::RandRange(1000, 3000));
 	CurrentPrices.Add(FMath::RandRange(1000, 3000));
+
+	BuyPrices.Add(FMath::RandRange(1000, 3000));
+	BuyPrices.Add(FMath::RandRange(1000, 3000));
+	BuyPrices.Add(FMath::RandRange(1000, 3000));
 }

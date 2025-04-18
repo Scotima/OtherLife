@@ -11,7 +11,7 @@ void UCFoodItemWidget::NativeConstruct()
 
 }
 
-void UCFoodItemWidget::SetItemData(FItemStruct& FoodData)
+void UCFoodItemWidget::SetItemData(const FItemStruct& FoodData)
 {
 	
 

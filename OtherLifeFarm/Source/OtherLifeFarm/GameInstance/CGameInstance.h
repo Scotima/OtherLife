@@ -38,6 +38,16 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	TArray<int64> CurrentPrices;
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<int64> BuyPrices;
+
+	UPROPERTY()
+	UDataTable* FoodDataTable;
+
+	UPROPERTY()
+	TArray<FItemStruct> CachedFoodData;
+
 public:
 	UFUNCTION(BlueprintCallable, Category = "FItemStructData")
 	void AddData(FItemStruct item);
@@ -54,6 +64,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Timer")
 	void UpdateTimer();
 
+
+
+
 private:
 	UFUNCTION()
 	void RefreshPrices();
@@ -64,6 +77,9 @@ private:
 
 public:
 	void AddCrop(FCRiceStruct* item);
+
+	const TArray<FItemStruct>& GetFoodData() const;
+
 
 
 	

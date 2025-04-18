@@ -5,33 +5,27 @@
 #include "Components/CanvasPanelSlot.h"
 #include "FarmCharacter/CCharacter.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameInstance/CGameInstance.h"
 
 
 void UCMakeFoodWidget::NativeConstruct()
 {
-	FoodDataTable = LoadObject<UDataTable>(nullptr, TEXT("/Game/FarmGame/DataTable/DT_Food"));
 
-	
+	Super::NativeConstruct();
 
-	
+	UGameInstance* GI = Cast<UCGameInstance>(GetGameInstance());
 
-	
-
-	if (!FoodDataTable)
+	if (GI)
 	{
-		UE_LOG(LogTemp, Error,TEXT("FoodDataTable is null"));
-		return;
+		SetInven();
 	}
+
 
 	
 }
 
 void UCMakeFoodWidget::ToogleInventory()
 {
-	
-
-	SetInven();
-
 	if (UCanvasPanelSlot* CanvasSlot = Cast<UCanvasPanelSlot>(this->Slot))
 	{
 		CanvasSlot->SetZOrder(10);
@@ -53,49 +47,51 @@ void UCMakeFoodWidget::SetZorder()
 void UCMakeFoodWidget::GoToInventory(int32 a)
 {
 	ACCharacter* character = Cast<ACCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	UCGameInstance* GI = Cast<UCGameInstance>(GetGameInstance());
 
-	if (character)
+
+	if (GI)
 	{
-		character->PickupItem(*FoodData[a]);
+		if (character)
+		{
+			const TArray<FItemStruct>& FoodData = GI->GetFoodData();
+			character->PickupItem(FoodData[a]);
+		}
 	}
+	
 
 	
 }
 
 void UCMakeFoodWidget::SetInven()
 {
-	if (!FoodDataTable)
+
+	UCGameInstance* GI = Cast<UCGameInstance>(GetGameInstance());
+
+	if (!GI)
 	{
-		UE_LOG(LogTemp, Error, TEXT("FoodDataTable is null"));
+		UE_LOG(LogTemp, Error, TEXT("GameInstance not found"));
 		return;
 	}
-	//FoodData = new TArray<FItemStruct*>();
-	if (FoodData.Num() > 0)
-	{
-		FoodData.Empty(); 
-	}
 	
-	FoodDataTable->GetAllRows<FItemStruct>(TEXT("DataTable Context"), FoodData);
-
-	
-	
-
-	
+	const TArray<FItemStruct> FoodData = GI->GetFoodData();
 
 
 	for (int i = 0; i < FoodData.Num(); i++)
 	{
 		if (FoodItemArray.IsValidIndex(i))
 		{
-			FoodItemArray[i]->SetItemData(*FoodData[i]);
+			FoodItemArray[i]->SetItemData(FoodData[i]);
 		}
 	}
-	
+
+
 	if (FoodItemArray.Num() < FoodData.Num())
 	{
 		UE_LOG(LogTemp, Error, TEXT("Food item array size is not enough"));
 		return;
 	}
+	
 
 
 

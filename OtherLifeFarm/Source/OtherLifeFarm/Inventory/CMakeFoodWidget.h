@@ -38,10 +38,11 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Inventory")
 	TArray<UCFoodItemWidget*> FoodItemArray;
 
-	TArray<FItemStruct*> FoodData;
+
 
 private:
-	UDataTable* FoodDataTable;
+	
+	bool bIsSettingInven = false;
 
 public:
 	UPROPERTY(BlueprintReadWrite)
