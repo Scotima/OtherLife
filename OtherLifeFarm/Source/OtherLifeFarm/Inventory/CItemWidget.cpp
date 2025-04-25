@@ -18,7 +18,7 @@ void UCItemWidget::NativeConstruct()
     }
 }
 
-void UCItemWidget::SetItemData(FItemStruct& ItemData)
+void UCItemWidget::SetItemData(const FItemStruct& ItemData)
 {
     UE_LOG(LogTemp, Warning, TEXT("SetItemData Succeess"));
 

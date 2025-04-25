@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/SaveGame.h"
 #include "Struct/CRiceStruct.h"
+#include "Inventory/FItemStruct.h"
+#include "Struct/FItemSaveData.h"
 #include "CFarmGameSave.generated.h"
 
 
@@ -16,5 +18,8 @@ class OTHERLIFEFARM_API UCFarmGameSave : public USaveGame
 public:
 	UPROPERTY(VisibleAnywhere, Category = "SaveData")
 	TArray<FCRiceStruct> SavedCrops;
+
+	UPROPERTY(VisibleAnywhere, Category = "SaveData")
+	TArray<FItemSaveData> SavedData;
 	
 };

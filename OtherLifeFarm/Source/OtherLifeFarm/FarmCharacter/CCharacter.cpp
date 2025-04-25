@@ -110,7 +110,7 @@ void ACCharacter::BeginPlay()
 	if (SkillWindowClass)
 	{
 		SkillWindowWidget = CreateWidget<UUserWidget>(GetWorld(), SkillWindowClass);
-
+		
 	}
 
 	if (CInventoryClass)
@@ -123,6 +123,7 @@ void ACCharacter::BeginPlay()
 			CInventoryWidget->SetVisibility(ESlateVisibility::Hidden);
 
 			CInventoryWidget->LoadInventory();
+			CInventoryWidget->LoadSaveInventory();
 		}
 	}
 
@@ -236,6 +237,8 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 						{
 							mygameinstance ->Data[index] = NewItem;
 							CInventoryWidget->SetInven(index);
+							mygameinstance->SaveInventoryData(mygameinstance->Data);
+							
 							return;
 
 						}
@@ -243,6 +246,8 @@ void ACCharacter::PickupItem(FItemStruct NewItem)
 						{
 							mygameinstance->Data[index].ItemCount += NewItem.ItemCount;
 							CInventoryWidget->SetInven(index);
+							mygameinstance->SaveInventoryData(mygameinstance->Data);
+							
 							return;
 						}
 					}

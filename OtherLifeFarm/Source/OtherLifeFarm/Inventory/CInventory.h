@@ -26,6 +26,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void LoadInventory();
 
+	UFUNCTION(BlueprintCallable)
+	void LoadSaveInventory();
+
 public:
 
 	void SetInventoryOpen(bool a) { bIsInventoryOpen = a; }

@@ -271,6 +271,18 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Struct\CRiceStruct.h">
       <Filter>Source\OtherLifeFarm\Struct</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Struct\FAllItem.cpp">
+      <Filter>Source\OtherLifeFarm\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Struct\FAllItem.h">
+      <Filter>Source\OtherLifeFarm\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Struct\FItemSaveData.cpp">
+      <Filter>Source\OtherLifeFarm\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Struct\FItemSaveData.h">
+      <Filter>Source\OtherLifeFarm\Struct</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\Tools">
       <UniqueIdentifier>{F6C0E4BE-7050-3276-B68E-A8CF12187A79}</UniqueIdentifier>
     </Filter>

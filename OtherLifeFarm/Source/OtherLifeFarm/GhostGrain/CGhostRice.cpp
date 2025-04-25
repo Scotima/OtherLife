@@ -59,6 +59,19 @@ void ACGhostRice::BeginPlay()
 	
 }
 
+void ACGhostRice::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	if (PlayerController)
+	{
+		if (PlayerController->InputComponent)
+		{
+			PlayerController->InputComponent->RemoveActionBinding("Cancel", IE_Pressed);
+		}
+	}
+}
+
 void ACGhostRice::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -112,6 +125,8 @@ void ACGhostRice::RealSpawnRice()
 
 void ACGhostRice::Cancel()
 {
+
+	UE_LOG(LogTemp, Warning, TEXT("Cancel"));
 	this->Destroy();
 	
 	if (character)

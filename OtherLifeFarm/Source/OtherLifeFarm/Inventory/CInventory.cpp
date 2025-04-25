@@ -65,6 +65,40 @@ void UCInventory::LoadInventory()
     }
 }
 
+void UCInventory::LoadSaveInventory()
+{
+    UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
+    
+    if (!mygameinstance)
+    {
+        UE_LOG(LogTemp, Error, TEXT("LoadSaveInventory->mygameinstance is null"));
+        return;
+    }
+
+    const TArray<FItemStruct> savedata = mygameinstance->LoadInventoryData();
+
+    if (savedata.IsEmpty())
+    {
+        UE_LOG(LogTemp, Error, TEXT("LoadInventoryData is null"));
+        return;
+    }
+    else
+    {
+        for (int i = 0; i < savedata.Num(); i++)
+        {
+            if (Itemarray.IsValidIndex(i) && Itemarray[i])
+            {
+                Itemarray[i]->SetItemData(savedata[i]);
+            }
+        }
+
+
+    }
+
+
+  
+}
+
 void UCInventory::SetInven(int32 a)
 {
     UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
