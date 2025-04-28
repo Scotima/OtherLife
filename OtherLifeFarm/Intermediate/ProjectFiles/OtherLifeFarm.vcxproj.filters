@@ -106,6 +106,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_GetRandomLocation.h">
       <Filter>Source\OtherLifeFarm\CustomTask</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\DialogueWidget">
+      <UniqueIdentifier>{FDB7B7E7-DBEF-369E-9054-5A29F854805A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\DialogueWidget\CDialogueWidget.cpp">
+      <Filter>Source\OtherLifeFarm\DialogueWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\DialogueWidget\CDialogueWidget.h">
+      <Filter>Source\OtherLifeFarm\DialogueWidget</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\FarmCharacter">
       <UniqueIdentifier>{073C646A-54E5-3586-8B25-DA51863D9387}</UniqueIdentifier>
     </Filter>
@@ -113,6 +122,12 @@
       <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CCharacter.h">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CFlick.cpp">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CFlick.h">
       <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CNpcone.cpp">

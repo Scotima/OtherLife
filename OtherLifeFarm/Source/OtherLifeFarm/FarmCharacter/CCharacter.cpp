@@ -1,4 +1,4 @@
-#include "CCharacter.h"
+﻿#include "CCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Camera/CameraComponent.h"	
@@ -12,6 +12,10 @@
 #include "CNpcone.h"
 #include "GameInstance/CGameInstance.h"
 #include "Grain/CRice.h"
+#include "DialogueWidget/CDialogueWidget.h"
+#include "CFlick.h"
+#include "AIController.h"
+
 
 
 ACCharacter::ACCharacter()
@@ -140,6 +144,11 @@ void ACCharacter::BeginPlay()
 			ManageInventoryWidget->SetVisibility(ESlateVisibility::Visible);
 		}
 
+	}
+
+	if (DialogueWidgetClass)
+	{
+		DialogueWidgetInstance = CreateWidget<UCDialogueWidget>(GetWorld(), DialogueWidgetClass);
 	}
 
 	UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
@@ -326,6 +335,33 @@ void ACCharacter::DoLineTrace()
 			AActor* HitActor = Hit.GetActor();
 			if (HitActor && HitActor->Implements<UCCharacterInterFace>())
 			{
+				APlayerController* PC = Cast<APlayerController>(GetController());
+				if (ACFlick* npc2 = Cast<ACFlick>(HitActor))
+				{
+					npc2->StartTalking();
+					npc2->GetController()->StopMovement();
+					if (AAIController* NPCController = Cast<AAIController>(npc2->GetController()))
+					{
+						NPCController->SetFocus(this);
+					}
+
+					PC; // TODO 캐릭터가 대화를 시도했을 때 화면 카메라 전환 이어서 하기.
+
+
+				}
+
+				if (DialogueWidgetInstance == nullptr)
+				{
+					DialogueWidgetInstance = CreateWidget<UCDialogueWidget>(GetWorld(), DialogueWidgetClass);
+				}
+
+				if (DialogueWidgetInstance)
+				{
+					DialogueWidgetInstance->SetDialogue(TEXT("여기가 바로 꿈꾸던 농장이군요!"));
+
+					DialogueWidgetInstance->AddToViewport();
+				}
+
 				UUserWidget* widget = ICCharacterInterFace::Execute_ShowWidget(HitActor);
 
 			
@@ -338,19 +374,19 @@ void ACCharacter::DoLineTrace()
 				}
 
 					
-					if (ACNpcone* NPC = Cast<ACNpcone>(HitActor))
-					{
-						APlayerController* PC = Cast<APlayerController>(GetController());
+				if (ACNpcone* NPC = Cast<ACNpcone>(HitActor))
+				{
+					APlayerController* PC = Cast<APlayerController>(GetController());
 
-						if (PC)
-						{
-							NPC->SetTalking(true);
-							PC->SetViewTargetWithBlend(HitActor, 1.0f, EViewTargetBlendFunction::VTBlend_Cubic);
-							LastInteractedNPC = NPC;
-							this->GetCharacterMovement()->SetMovementMode((MOVE_None));
+					if (PC)
+					{
+						NPC->SetTalking(true);
+						PC->SetViewTargetWithBlend(HitActor, 1.0f, EViewTargetBlendFunction::VTBlend_Cubic);
+						LastInteractedNPC = NPC;
+						this->GetCharacterMovement()->SetMovementMode((MOVE_None));
 							
-						}
 					}
+				}
 					
 				
 				break;
@@ -388,7 +424,7 @@ void ACCharacter::CameraOriginalPos()
 
 		if (PC)
 		{
-			PC->SetViewTargetWithBlend(this, 0.5f); // ī�޶� ����ġ�� ���ƿ��� �ϴ� ���
+			PC->SetViewTargetWithBlend(this, 0.5f); // 카메라 원위치로 돌아오게 하는 기능
 			LastInteractedNPC->SetTalking(false);
 
 			LastInteractedNPC = nullptr;

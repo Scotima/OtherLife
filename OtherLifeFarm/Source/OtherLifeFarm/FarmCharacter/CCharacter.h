@@ -86,6 +86,12 @@ protected:
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<class UCItemWidget> InventoryWidgetClass;
 
+	UPROPERTY(EditAnyWhere, Category = "Dialogue")
+	TSubclassOf<class UCDialogueWidget> DialogueWidgetClass;
+
+	UPROPERTY()
+	class UCDialogueWidget* DialogueWidgetInstance;
+
 	UPROPERTY()
 	ACNpcone* LastInteractedNPC;
 
