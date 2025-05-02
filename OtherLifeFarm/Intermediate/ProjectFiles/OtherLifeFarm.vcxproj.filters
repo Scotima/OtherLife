@@ -307,5 +307,14 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\Tools\CRake.h">
       <Filter>Source\OtherLifeFarm\Tools</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\Widget">
+      <UniqueIdentifier>{2FCEAA07-1B33-3996-BFFF-085C824BDC0C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Widget\CGameQuit.cpp">
+      <Filter>Source\OtherLifeFarm\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Widget\CGameQuit.h">
+      <Filter>Source\OtherLifeFarm\Widget</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

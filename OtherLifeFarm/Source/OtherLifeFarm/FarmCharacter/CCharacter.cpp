@@ -3,6 +3,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Camera/CameraComponent.h"	
 #include "GameFramework/PlayerController.h"
+#include "PlayerController/CPlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Tools/CRake.h"
 #include "Blueprint/UserWidget.h"
@@ -15,6 +16,7 @@
 #include "DialogueWidget/CDialogueWidget.h"
 #include "CFlick.h"
 #include "AIController.h"
+#include "BrainComponent.h"
 
 
 
@@ -146,10 +148,7 @@ void ACCharacter::BeginPlay()
 
 	}
 
-	if (DialogueWidgetClass)
-	{
-		DialogueWidgetInstance = CreateWidget<UCDialogueWidget>(GetWorld(), DialogueWidgetClass);
-	}
+	
 
 	UCGameInstance* mygameinstance = Cast<UCGameInstance>(GetGameInstance());
 	if (mygameinstance)
@@ -335,32 +334,71 @@ void ACCharacter::DoLineTrace()
 			AActor* HitActor = Hit.GetActor();
 			if (HitActor && HitActor->Implements<UCCharacterInterFace>())
 			{
-				APlayerController* PC = Cast<APlayerController>(GetController());
+				
+				
 				if (ACFlick* npc2 = Cast<ACFlick>(HitActor))
 				{
-					npc2->StartTalking();
-					npc2->GetController()->StopMovement();
-					if (AAIController* NPCController = Cast<AAIController>(npc2->GetController()))
+					ACPlayerController* PC = Cast<ACPlayerController>(GetController());
+					if (PC)
 					{
-						NPCController->SetFocus(this);
+						npc2->StartTalking();
+
+						
+						if (AAIController* NPCController = Cast<AAIController>(npc2->GetController()))
+						{
+							NPCController->StopMovement();
+
+							if (NPCController->BrainComponent)
+							{
+								NPCController->BrainComponent->StopLogic("Talking");
+							}
+							NPCController->SetFocus(this);
+
+							npc2->bUseControllerRotationYaw = true;
+							npc2->GetCharacterMovement()->bOrientRotationToMovement = false;
+						}
+
+						PC->SetViewTargetWithBlend(HitActor, 1.0f, EViewTargetBlendFunction::VTBlend_Cubic);
+						this->GetCharacterMovement()->DisableMovement();
+
+						if (DialogueWidgetInstance == nullptr)
+						{
+							DialogueWidgetInstance = CreateWidget<UCDialogueWidget>(GetWorld(), DialogueWidgetClass);
+						}
+
+						if (DialogueWidgetInstance)
+						{
+							DialogueWidgetInstance->SetDialogue(TEXT("여기가 바로 꿈꾸던 농장이군요!"));
+
+							DialogueWidgetInstance->AddToViewport();
+							DialogueWidgetInstance->SetPlayer(this);
+
+							
+
+							FInputModeGameAndUI InputMode;
+							InputMode.SetWidgetToFocus(DialogueWidgetInstance->TakeWidget());
+							InputMode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
+							InputMode.SetHideCursorDuringCapture(false);
+							PC->SetInputMode(InputMode);
+							PC->bShowMouseCursor = true;
+							
+							if (!PC->UIStack.Contains(DialogueWidgetInstance))
+							{
+								PC->UIStack.Add(DialogueWidgetInstance);
+							}
+
+
+							CurrentWidget = DialogueWidgetInstance;
+							InteractedNPC = npc2;
+
+							
+						}
 					}
-
-					PC; // TODO 캐릭터가 대화를 시도했을 때 화면 카메라 전환 이어서 하기.
+					
 
 
 				}
 
-				if (DialogueWidgetInstance == nullptr)
-				{
-					DialogueWidgetInstance = CreateWidget<UCDialogueWidget>(GetWorld(), DialogueWidgetClass);
-				}
-
-				if (DialogueWidgetInstance)
-				{
-					DialogueWidgetInstance->SetDialogue(TEXT("여기가 바로 꿈꾸던 농장이군요!"));
-
-					DialogueWidgetInstance->AddToViewport();
-				}
 
 				UUserWidget* widget = ICCharacterInterFace::Execute_ShowWidget(HitActor);
 
@@ -432,6 +470,56 @@ void ACCharacter::CameraOriginalPos()
 		}
 	}
 	
+}
+
+void ACCharacter::EndDialogue()
+{
+	APlayerController* PC = Cast<APlayerController>(GetController());
+
+	
+
+	GetCharacterMovement()->SetMovementMode(MOVE_Walking);
+
+	if(DialogueWidgetInstance && DialogueWidgetInstance->IsInViewport())
+	{
+		DialogueWidgetInstance->RemoveFromParent();
+	}
+
+	if (CurrentWidget)
+	{
+		CurrentWidget->RemoveFromParent();
+		CurrentWidget = nullptr;
+	}
+
+	if (InteractedNPC)
+	{
+		InteractedNPC->StopTalking();
+
+		if (AAIController* NPCController = Cast<AAIController>(InteractedNPC->GetController()))
+		{
+			NPCController->ClearFocus(EAIFocusPriority::Default);
+
+			InteractedNPC->bUseControllerRotationYaw = false;
+			InteractedNPC->GetCharacterMovement()->bOrientRotationToMovement = true;
+
+			if (NPCController->BrainComponent)
+			{
+				NPCController->BrainComponent->RestartLogic();
+			}
+		}
+	}
+
+	InteractedNPC = nullptr;
+
+	//카메라 원래대로 복귀
+	if (PC)
+	{
+		PC->SetViewTargetWithBlend(this, 1.0f, EViewTargetBlendFunction::VTBlend_Cubic);
+		FInputModeGameOnly InputMode;
+		PC->SetInputMode(InputMode);
+
+	}
+
 }
 
 

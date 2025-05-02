@@ -11,6 +11,7 @@
 			"CFlick.gen.cpp.obj",
 			"CFoodItemWidget.gen.cpp.obj",
 			"CGameInstance.gen.cpp.obj",
+			"CGameQuit.gen.cpp.obj",
 			"CGhostRice.gen.cpp.obj",
 			"CInventory.gen.cpp.obj",
 			"CItem.gen.cpp.obj",
@@ -41,6 +42,7 @@
 			"CMoveNotify.cpp.obj",
 			"CStopNotify.cpp.obj",
 			"BTTask_GetRandomLocation.cpp.obj",
+			"CFlick.cpp.obj",
 			"CNpcone.cpp.obj",
 			"CGameInstance.cpp.obj",
 			"MyGameModeBase.cpp.obj",
@@ -62,7 +64,6 @@
 			"OtherLifeFarmCharacter.cpp.obj",
 			"OtherLifeFarmGameMode.cpp.obj",
 			"OtherLifeFarmPlayerController.cpp.obj",
-			"CPlayerController.cpp.obj",
 			"CFarmGameSave.cpp.obj",
 			"CStoreWidget.cpp.obj",
 			"CRiceStruct.cpp.obj",
@@ -72,7 +73,8 @@
 			"OtherLifeFarm.init.gen.cpp.obj",
 			"CDialogueWidget.cpp.obj",
 			"CCharacter.cpp.obj",
-			"CFlick.cpp.obj"
+			"CPlayerController.cpp.obj",
+			"CGameQuit.cpp.obj"
 		]
 	}
 }

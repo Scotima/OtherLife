@@ -40,6 +40,8 @@ private:
 	void DoLineTrace();
 
 
+
+
 public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void OpenWindowSkill();
@@ -58,6 +60,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "Coin")
 	void CameraOriginalPos();
+
+	UFUNCTION(BlueprintCallable, Category = "Dialogue")
+	void EndDialogue();
 
 
 	
@@ -94,6 +99,9 @@ protected:
 
 	UPROPERTY()
 	ACNpcone* LastInteractedNPC;
+
+	UPROPERTY()
+	class ACFlick* InteractedNPC;
 
 
 	
