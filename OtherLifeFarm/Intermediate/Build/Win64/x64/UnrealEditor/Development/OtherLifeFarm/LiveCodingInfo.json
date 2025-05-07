@@ -4,6 +4,9 @@
 		"Module.OtherLifeFarm.cpp.obj": [
 			"BTTask_GetRandomLocation.gen.cpp.obj",
 			"CAnimInterface.gen.cpp.obj",
+			"CBoss.gen.cpp.obj",
+			"CBossAnimInstance.gen.cpp.obj",
+			"CBossController.gen.cpp.obj",
 			"CCharacter.gen.cpp.obj",
 			"CCharacterInterFace.gen.cpp.obj",
 			"CDialogueWidget.gen.cpp.obj",
@@ -42,6 +45,8 @@
 			"CMoveNotify.cpp.obj",
 			"CStopNotify.cpp.obj",
 			"BTTask_GetRandomLocation.cpp.obj",
+			"CDialogueWidget.cpp.obj",
+			"CCharacter.cpp.obj",
 			"CFlick.cpp.obj",
 			"CNpcone.cpp.obj",
 			"CGameInstance.cpp.obj",
@@ -64,17 +69,18 @@
 			"OtherLifeFarmCharacter.cpp.obj",
 			"OtherLifeFarmGameMode.cpp.obj",
 			"OtherLifeFarmPlayerController.cpp.obj",
+			"CPlayerController.cpp.obj",
 			"CFarmGameSave.cpp.obj",
 			"CStoreWidget.cpp.obj",
 			"CRiceStruct.cpp.obj",
 			"FAllItem.cpp.obj",
 			"FItemSaveData.cpp.obj",
 			"CRake.cpp.obj",
+			"CGameQuit.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
-			"CDialogueWidget.cpp.obj",
-			"CCharacter.cpp.obj",
-			"CPlayerController.cpp.obj",
-			"CGameQuit.cpp.obj"
+			"CBossAnimInstance.cpp.obj",
+			"CBoss.cpp.obj",
+			"CBossController.cpp.obj"
 		]
 	}
 }

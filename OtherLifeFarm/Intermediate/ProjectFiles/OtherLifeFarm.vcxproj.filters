@@ -13,6 +13,7 @@
     </None>
     <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\2025_05_07_Content.zip" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -76,6 +77,12 @@
     <Filter Include="Source\OtherLifeFarm\AnimInstance">
       <UniqueIdentifier>{F2EC1414-4544-3BC3-8EF8-B9A28D63BB4D}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimInstance\CBossAnimInstance.cpp">
+      <Filter>Source\OtherLifeFarm\AnimInstance</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimInstance\CBossAnimInstance.h">
+      <Filter>Source\OtherLifeFarm\AnimInstance</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\AnimInstance\CNpconeAnimInstance.cpp">
       <Filter>Source\OtherLifeFarm\AnimInstance</Filter>
     </ClCompile>
@@ -118,6 +125,12 @@
     <Filter Include="Source\OtherLifeFarm\FarmCharacter">
       <UniqueIdentifier>{073C646A-54E5-3586-8B25-DA51863D9387}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CBoss.cpp">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CBoss.h">
+      <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\FarmCharacter\CCharacter.cpp">
       <Filter>Source\OtherLifeFarm\FarmCharacter</Filter>
     </ClCompile>
@@ -244,6 +257,12 @@
     <Filter Include="Source\OtherLifeFarm\NPCController">
       <UniqueIdentifier>{68D3FA59-F368-3789-A722-E4208BC7FD86}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\NPCController\CBossController.cpp">
+      <Filter>Source\OtherLifeFarm\NPCController</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\NPCController\CBossController.h">
+      <Filter>Source\OtherLifeFarm\NPCController</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\NPCController\CNPCController.cpp">
       <Filter>Source\OtherLifeFarm\NPCController</Filter>
     </ClCompile>
