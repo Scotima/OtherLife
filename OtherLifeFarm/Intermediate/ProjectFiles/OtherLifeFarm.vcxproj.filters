@@ -107,6 +107,12 @@
     <Filter Include="Source\OtherLifeFarm\CustomTask">
       <UniqueIdentifier>{23FDCBAE-7641-3C18-89BA-590C2C5370A2}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_AttackTarget.cpp">
+      <Filter>Source\OtherLifeFarm\CustomTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_AttackTarget.h">
+      <Filter>Source\OtherLifeFarm\CustomTask</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_GetRandomLocation.cpp">
       <Filter>Source\OtherLifeFarm\CustomTask</Filter>
     </ClCompile>

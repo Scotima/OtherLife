@@ -13,6 +13,7 @@ class UUserWidget;
 class UCManageInventory;
 class ACGhostRice;
 class ACNpcone;
+class UAIPerceptionStimuliSourceComponent;
 
 UCLASS()
 class OTHERLIFEFARM_API ACCharacter : public ACharacter, public ICCharacterInterFace
@@ -103,6 +104,8 @@ protected:
 	UPROPERTY()
 	class ACFlick* InteractedNPC;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
+	UAIPerceptionStimuliSourceComponent* StimuliSource;
 
 	
 	

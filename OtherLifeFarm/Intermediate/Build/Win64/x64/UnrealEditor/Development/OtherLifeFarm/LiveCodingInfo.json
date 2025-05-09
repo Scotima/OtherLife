@@ -2,6 +2,7 @@
 	"RemapUnityFiles": 
 	{
 		"Module.OtherLifeFarm.cpp.obj": [
+			"BTTask_AttackTarget.gen.cpp.obj",
 			"BTTask_GetRandomLocation.gen.cpp.obj",
 			"CAnimInterface.gen.cpp.obj",
 			"CBoss.gen.cpp.obj",
@@ -41,12 +42,13 @@
 			"OtherLifeFarmGameMode.gen.cpp.obj",
 			"OtherLifeFarmPlayerController.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
+			"CBossAnimInstance.cpp.obj",
 			"CNpconeAnimInstance.cpp.obj",
 			"CMoveNotify.cpp.obj",
 			"CStopNotify.cpp.obj",
 			"BTTask_GetRandomLocation.cpp.obj",
 			"CDialogueWidget.cpp.obj",
-			"CCharacter.cpp.obj",
+			"CBoss.cpp.obj",
 			"CFlick.cpp.obj",
 			"CNpcone.cpp.obj",
 			"CGameInstance.cpp.obj",
@@ -78,8 +80,8 @@
 			"CRake.cpp.obj",
 			"CGameQuit.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
-			"CBossAnimInstance.cpp.obj",
-			"CBoss.cpp.obj",
+			"BTTask_AttackTarget.cpp.obj",
+			"CCharacter.cpp.obj",
 			"CBossController.cpp.obj"
 		]
 	}

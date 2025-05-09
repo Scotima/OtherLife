@@ -4,6 +4,7 @@
 #include "AIController.h"
 #include "CBossController.generated.h"
 
+struct FAIStimulus;
 
 UCLASS()
 class OTHERLIFEFARM_API ACBossController : public AAIController
@@ -23,7 +24,7 @@ protected:
 
 protected:
 	UFUNCTION()
-	void OnTargetDetected(AActor* Actor, class FAIStimulus Stimulus);
+	void OnTargetDetected(AActor* Actor, FAIStimulus Stimulus);
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI", meta = (AllowPrivateAccess = "true"))
@@ -31,6 +32,7 @@ private:
 
 	UPROPERTY()
 	class UAISenseConfig_Sight* SightConfig;
+
 
 
 protected:
@@ -43,6 +45,10 @@ protected:
 	UBlackboardData* BlackboardAsset;
 
 private:
+	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "AI", meta = (AllowPrivateAccess = "true"))
 	UBlackboardComponent* BlackboardComp;
+
+	UPROPERTY()
+	AActor* CurrentTarget;
 
 };

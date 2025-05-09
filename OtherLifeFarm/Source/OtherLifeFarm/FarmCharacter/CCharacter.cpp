@@ -17,6 +17,8 @@
 #include "CFlick.h"
 #include "AIController.h"
 #include "BrainComponent.h"
+#include "Perception/AIPerceptionStimuliSourceComponent.h"
+#include "Perception/AISense_Sight.h"
 
 
 
@@ -95,8 +97,9 @@ ACCharacter::ACCharacter()
 
 	ItemIndex = 0;
 
-	
-
+	StimuliSource = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("StimuliSource"));
+	StimuliSource->RegisterForSense(UAISense_Sight::StaticClass());
+	StimuliSource->bAutoRegister = true;
 
 }
 
