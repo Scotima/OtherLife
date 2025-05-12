@@ -8,9 +8,11 @@
 /NODEFAULTLIB
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\OtherLifeFarmEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\Module.OtherLifeFarm.cpp.obj"
+"C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\CBossAnimInstance.cpp.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\BTTask_AttackTarget.cpp.obj"
-"C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\CCharacter.cpp.obj"
+"C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\CBoss.cpp.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\CBossController.cpp.obj"
+"C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\BTService_DetectPlayer.cpp.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\OtherLifeFarm.init.gen.cpp.obj"
 "C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\Default.rc2.res"
 /OUT:"C:\KMK\OtherLife\OtherLifeFarm\Intermediate\Build\Win64\x64\UnrealEditor\Development\OtherLifeFarm\UnrealEditor-OtherLifeFarm.lib"

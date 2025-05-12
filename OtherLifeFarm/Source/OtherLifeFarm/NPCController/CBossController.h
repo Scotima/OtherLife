@@ -21,10 +21,8 @@ public:
 protected:
 
 	virtual void BeginPlay() override;
-
-protected:
-	UFUNCTION()
-	void OnTargetDetected(AActor* Actor, FAIStimulus Stimulus);
+	
+	virtual void OnPossess(APawn* InPawn) override;
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI", meta = (AllowPrivateAccess = "true"))
@@ -47,8 +45,4 @@ protected:
 private:
 	UPROPERTY(VisibleAnyWhere, BlueprintReadOnly, Category = "AI", meta = (AllowPrivateAccess = "true"))
 	UBlackboardComponent* BlackboardComp;
-
-	UPROPERTY()
-	AActor* CurrentTarget;
-
 };

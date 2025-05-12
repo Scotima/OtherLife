@@ -293,6 +293,15 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\SaveGame\CFarmGameSave.h">
       <Filter>Source\OtherLifeFarm\SaveGame</Filter>
     </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\Service">
+      <UniqueIdentifier>{9698F7B5-69BC-3396-AB4B-14642B66A543}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Service\BTService_DetectPlayer.cpp">
+      <Filter>Source\OtherLifeFarm\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Service\BTService_DetectPlayer.h">
+      <Filter>Source\OtherLifeFarm\Service</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\StoreWidget">
       <UniqueIdentifier>{C266B6C0-BA5A-3C3D-AEAC-6B04E62CD140}</UniqueIdentifier>
     </Filter>

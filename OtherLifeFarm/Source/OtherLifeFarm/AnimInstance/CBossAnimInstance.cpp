@@ -7,21 +7,25 @@ void UCBossAnimInstance::NativeInitializeAnimation()
 {
 	Super::NativeInitializeAnimation();
 
-	Character = Cast<ACharacter>(GetOwningActor());
-
-	if (Character)
+	AActor* a = GetOwningActor();
+	if (a != NULL)
 	{
+		Character = Cast<ACharacter>(a);
 
-		CharacterMovement = Character->GetCharacterMovement();
+		if (Character)
+		{
+
+			CharacterMovement = Character->GetCharacterMovement();
+		}
+
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("UCBossAnimInstance -> Character is null"));
+		}
+
+
+		ShouldMove = false;
 	}
-
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("UCBossAnimInstance -> Character is null"));
-	}
-
-
-	ShouldMove = false;
 }
 
 void UCBossAnimInstance::NativeUpdateAnimation(float DeltaSeconds)

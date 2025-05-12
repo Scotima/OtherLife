@@ -5,6 +5,8 @@
 #include "GameFramework/Character.h"
 #include "CBoss.generated.h"
 
+class UAnimMontage;
+
 UCLASS()
 class OTHERLIFEFARM_API ACBoss : public ACharacter
 {
@@ -13,6 +15,11 @@ class OTHERLIFEFARM_API ACBoss : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ACBoss();
+
+
+public:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Anim")
+	UAnimMontage* AttackMontage;
 
 protected:
 	// Called when the game starts or when spawned
