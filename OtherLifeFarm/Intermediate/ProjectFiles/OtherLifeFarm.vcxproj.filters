@@ -119,6 +119,12 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_GetRandomLocation.h">
       <Filter>Source\OtherLifeFarm\CustomTask</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_JumpSmash.cpp">
+      <Filter>Source\OtherLifeFarm\CustomTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\CustomTask\BTTask_JumpSmash.h">
+      <Filter>Source\OtherLifeFarm\CustomTask</Filter>
+    </ClCompile>
     <Filter Include="Source\OtherLifeFarm\DialogueWidget">
       <UniqueIdentifier>{FDB7B7E7-DBEF-369E-9054-5A29F854805A}</UniqueIdentifier>
     </Filter>
@@ -296,11 +302,26 @@
     <Filter Include="Source\OtherLifeFarm\Service">
       <UniqueIdentifier>{9698F7B5-69BC-3396-AB4B-14642B66A543}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Service\BTService_ChoosePattern.cpp">
+      <Filter>Source\OtherLifeFarm\Service</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Service\BTService_ChoosePattern.h">
+      <Filter>Source\OtherLifeFarm\Service</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\Service\BTService_DetectPlayer.cpp">
       <Filter>Source\OtherLifeFarm\Service</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\Service\BTService_DetectPlayer.h">
       <Filter>Source\OtherLifeFarm\Service</Filter>
+    </ClCompile>
+    <Filter Include="Source\OtherLifeFarm\Skill">
+      <UniqueIdentifier>{74F54C24-EA1C-3E67-8EC6-4C9B595CE574}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Skill\SplineFlameAttack.cpp">
+      <Filter>Source\OtherLifeFarm\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\Skill\SplineFlameAttack.h">
+      <Filter>Source\OtherLifeFarm\Skill</Filter>
     </ClCompile>
     <Filter Include="Source\OtherLifeFarm\StoreWidget">
       <UniqueIdentifier>{C266B6C0-BA5A-3C3D-AEAC-6B04E62CD140}</UniqueIdentifier>

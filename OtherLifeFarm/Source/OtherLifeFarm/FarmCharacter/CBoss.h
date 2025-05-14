@@ -19,7 +19,10 @@ public:
 
 public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Anim")
-	UAnimMontage* AttackMontage;
+	UAnimMontage* MeleeAttackMontage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Anim")
+	UAnimMontage* JumpSmashMontage;
 
 protected:
 	// Called when the game starts or when spawned

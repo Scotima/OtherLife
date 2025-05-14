@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UCBossAnimInstance" Collapsed="true">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAABAAAAAAAAEACAAAAAAAAAAAECIA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\AnimInstance\CBossAnimInstance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCNpconeAnimInstance" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\AnimInstance\CNpconeAnimInstance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCMoveNotify" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAACAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\AnimNotify\CMoveNotify.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCStopNotify" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAACAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\AnimNotify\CStopNotify.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UBTTask_AttackTarget" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\CustomTask\BTTask_AttackTarget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UBTTask_GetRandomLocation" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAEAAAAABAgAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\CustomTask\BTTask_GetRandomLocation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCDialogueWidget" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIhAEQAAAAIAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\DialogueWidget\CDialogueWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACBoss" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAwQAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\FarmCharacter\CBoss.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACCharacter" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIgQCCAIEIBEAIAAKAgGOCEAAUAAIAIYAQAAAIgQEQ=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\FarmCharacter\CCharacter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACFlick" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAABAAAAAAAAAAAAAgAAgAgAAAAAAAAgQAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\FarmCharacter\CFlick.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACNpcone" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAEAAAAAAAAAAgAAAAAAAAAAIAAAgQAQ=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\FarmCharacter\CNpcone.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCGameInstance" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FCAAAACAAKkAAJABAoAEAAAGAAQAEBADRAAKBAAAAEA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\GameInstance\CGameInstance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMyGameModeBase" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\GameMode\MyGameModeBase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACGhostRice" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIiAAAUAAAAAAAAAAEABAEAAQAgAAAAAAAAAAgQAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\GhostGrain\CGhostRice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACRice" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAAAQgAQACAQAAAAQAAAAAAEAACQAACAAAgAgQCA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Grain\CRice.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACTree" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAg=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Grain\CTree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCAnimInterface" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\InterFace\CAnimInterface.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICAnimInterface" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\InterFace\CAnimInterface.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCCharacterInterFace" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\InterFace\CCharacterInterFace.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICCharacterInterFace" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\InterFace\CCharacterInterFace.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCFoodItemWidget" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAEAgAAAAAAAAAAIAAAAAAAAAAAAAAAAQIACA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Inventory\CFoodItemWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCInventory" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAABAAAAEAAkAAoAQAAAEAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Inventory\CInventory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCItemWidget" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAgAAAAAAAAIAAAAAAAAgAAAAAAIQAACA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Inventory\CItemWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCMakeFoodWidget" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAEAAhAgoAAAAAAAAAAAAAIAAAIACA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Inventory\CMakeFoodWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCManageInventory" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAgIAAhAAAAAAMAAAgAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Inventory\CManageInventory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACItem" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAgQAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Items\CItem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACBossController" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAEAAAAAAAAAAAAAAQAAAACAAAAAAQAAAAAAAAhAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\NPCController\CBossController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACNPCController" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAECAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAhAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\NPCController\CNPCController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACPlayerController" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAMABACAAAAAAAAAAAAAQAAAAAAEAAAAAAgAgA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\PlayerController\CPlayerController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCFarmGameSave" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\SaveGame\CFarmGameSave.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UBTService_DetectPlayer" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Service\BTService_DetectPlayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCStoreWidget" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAEAAAAQAQAAAAIAAAAgAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\StoreWidget\CStoreWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACRake" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIBAAAABAAQAAAAAAaAAAEQCAAAAAAoAAIBAAgSAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Tools\CRake.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UCGameQuit" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAIAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Widget\CGameQuit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="FItemStruct" Collapsed="true">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAEAAAAAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Inventory\FItemStruct.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="FCRiceStruct" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAgAAAAAAAAAEAAAAAgAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Struct\CRiceStruct.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="FAllItem" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAIAAAAAgAAAAAABEAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Struct\FAllItem.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="FItemSaveData" Collapsed="true">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\KMK\OtherLife\OtherLifeFarm\Source\OtherLifeFarm\Struct\FItemSaveData.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

@@ -33,7 +33,7 @@ EBTNodeResult::Type UBTTask_AttackTarget::ExecuteTask(UBehaviorTreeComponent& Ow
 	UE_LOG(LogTemp, Warning, TEXT("try attack: %s"), *Target->GetName());
 
 	ACBoss* boss = Cast<ACBoss>(AIPawn);
-	if (!boss || !boss->AttackMontage)
+	if (!boss || !boss->MeleeAttackMontage)
 	{
 		return EBTNodeResult::Failed;
 	}
@@ -41,10 +41,27 @@ EBTNodeResult::Type UBTTask_AttackTarget::ExecuteTask(UBehaviorTreeComponent& Ow
 	UAnimInstance* AnimInst = boss->GetMesh()->GetAnimInstance();
 	if (AnimInst)
 	{
-		AnimInst->Montage_Play(boss->AttackMontage);
+		AnimInst->Montage_Play(boss->MeleeAttackMontage);
 		UE_LOG(LogTemp, Warning, TEXT("🔥 공격 애니메이션 재생 중: %s"), *Target->GetName());
-		return EBTNodeResult::Succeeded;
+
+		bNotifyTick = true;
+
+		return EBTNodeResult::InProgress;
 	}
 
-	return EBTNodeResult::Succeeded;
+	return EBTNodeResult::Failed;
+}
+
+void UBTTask_AttackTarget::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
+{
+
+	ACBoss* boss = Cast<ACBoss>(OwnerComp.GetAIOwner()->GetPawn());
+
+	if (!boss) return;
+
+	UAnimInstance* AnimInst = boss->GetMesh()->GetAnimInstance();
+	if (AnimInst && !AnimInst->Montage_IsPlaying(boss->MeleeAttackMontage))
+	{
+		FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
+	}
 }

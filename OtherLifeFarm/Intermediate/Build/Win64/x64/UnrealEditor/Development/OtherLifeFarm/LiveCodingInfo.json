@@ -2,9 +2,11 @@
 	"RemapUnityFiles": 
 	{
 		"Module.OtherLifeFarm.cpp.obj": [
+			"BTService_ChoosePattern.gen.cpp.obj",
 			"BTService_DetectPlayer.gen.cpp.obj",
 			"BTTask_AttackTarget.gen.cpp.obj",
 			"BTTask_GetRandomLocation.gen.cpp.obj",
+			"BTTask_JumpSmash.gen.cpp.obj",
 			"CAnimInterface.gen.cpp.obj",
 			"CBoss.gen.cpp.obj",
 			"CBossAnimInstance.gen.cpp.obj",
@@ -42,7 +44,9 @@
 			"OtherLifeFarmCharacter.gen.cpp.obj",
 			"OtherLifeFarmGameMode.gen.cpp.obj",
 			"OtherLifeFarmPlayerController.gen.cpp.obj",
+			"SplineFlameAttack.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
+			"CBossAnimInstance.cpp.obj",
 			"CNpconeAnimInstance.cpp.obj",
 			"CMoveNotify.cpp.obj",
 			"CStopNotify.cpp.obj",
@@ -65,6 +69,7 @@
 			"CManageInventory.cpp.obj",
 			"FItemStruct.cpp.obj",
 			"CItem.cpp.obj",
+			"CBossController.cpp.obj",
 			"CNPCController.cpp.obj",
 			"OpenAIChatManager.cpp.obj",
 			"OtherLifeFarm.cpp.obj",
@@ -73,6 +78,7 @@
 			"OtherLifeFarmPlayerController.cpp.obj",
 			"CPlayerController.cpp.obj",
 			"CFarmGameSave.cpp.obj",
+			"BTService_DetectPlayer.cpp.obj",
 			"CStoreWidget.cpp.obj",
 			"CRiceStruct.cpp.obj",
 			"FAllItem.cpp.obj",
@@ -80,11 +86,11 @@
 			"CRake.cpp.obj",
 			"CGameQuit.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
-			"CBossAnimInstance.cpp.obj",
 			"BTTask_AttackTarget.cpp.obj",
+			"BTTask_JumpSmash.cpp.obj",
 			"CBoss.cpp.obj",
-			"CBossController.cpp.obj",
-			"BTService_DetectPlayer.cpp.obj"
+			"BTService_ChoosePattern.cpp.obj",
+			"SplineFlameAttack.cpp.obj"
 		]
 	}
 }
