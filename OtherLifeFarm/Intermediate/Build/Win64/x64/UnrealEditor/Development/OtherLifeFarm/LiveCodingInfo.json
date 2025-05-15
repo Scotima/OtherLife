@@ -33,6 +33,7 @@
 			"CRake.gen.cpp.obj",
 			"CRice.gen.cpp.obj",
 			"CRiceStruct.gen.cpp.obj",
+			"CSpawnFlameEffectNotify.gen.cpp.obj",
 			"CStopNotify.gen.cpp.obj",
 			"CStoreWidget.gen.cpp.obj",
 			"CTree.gen.cpp.obj",
@@ -50,7 +51,9 @@
 			"CNpconeAnimInstance.cpp.obj",
 			"CMoveNotify.cpp.obj",
 			"CStopNotify.cpp.obj",
+			"BTTask_AttackTarget.cpp.obj",
 			"BTTask_GetRandomLocation.cpp.obj",
+			"BTTask_JumpSmash.cpp.obj",
 			"CDialogueWidget.cpp.obj",
 			"CCharacter.cpp.obj",
 			"CFlick.cpp.obj",
@@ -78,6 +81,7 @@
 			"OtherLifeFarmPlayerController.cpp.obj",
 			"CPlayerController.cpp.obj",
 			"CFarmGameSave.cpp.obj",
+			"BTService_ChoosePattern.cpp.obj",
 			"BTService_DetectPlayer.cpp.obj",
 			"CStoreWidget.cpp.obj",
 			"CRiceStruct.cpp.obj",
@@ -86,10 +90,8 @@
 			"CRake.cpp.obj",
 			"CGameQuit.cpp.obj",
 			"OtherLifeFarm.init.gen.cpp.obj",
-			"BTTask_AttackTarget.cpp.obj",
-			"BTTask_JumpSmash.cpp.obj",
+			"CSpawnFlameEffectNotify.cpp.obj",
 			"CBoss.cpp.obj",
-			"BTService_ChoosePattern.cpp.obj",
 			"SplineFlameAttack.cpp.obj"
 		]
 	}

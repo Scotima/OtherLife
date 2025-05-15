@@ -1,5 +1,6 @@
 #include "FarmCharacter/CBoss.h"
 #include "Animation/AnimMontage.h"
+#include "Skill/SplineFlameAttack.h"
 ACBoss::ACBoss()
 {
  	

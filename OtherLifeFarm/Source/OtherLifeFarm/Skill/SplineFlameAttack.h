@@ -7,7 +7,7 @@
 
 class USplineComponent;
 class UNiagaraSystem;
-
+class UNiagaraComponent;
 UCLASS()
 class OTHERLIFEFARM_API ASplineFlameAttack : public AActor
 {
@@ -37,6 +37,14 @@ protected:
 	//간격
 	UPROPERTY(EditAnywhere, Category = "VFX")
 	float Spacing = 100.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "VFX")
+	float Speed = 800.f;
+
+	UPROPERTY()
+	UNiagaraComponent* NiagaraComp;
+
+
 	//데미지 처리용 채널
 	UPROPERTY(EditAnywhere, Category = "VFX")
 	TSubclassOf<UDamageType> DamageType;
@@ -55,16 +63,8 @@ protected:
 	FTimerHandle FlameSpawnTimerHandle;
 	int32 CurrentSpawnIndex = 0;
 
+	float TravelDistance = 0.f;
 
-
-
-
-protected:
-	UFUNCTION()
-	void SpawnFlameAlongSpline();
-
-	UFUNCTION()
-	void SpawnNextFlame();
 
 
 

@@ -24,6 +24,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Anim")
 	UAnimMontage* JumpSmashMontage;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill")
+	TSubclassOf<class ASplineFlameAttack> SplineFlameClass;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

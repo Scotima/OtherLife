@@ -98,6 +98,12 @@
     <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CMoveNotify.h">
       <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CSpawnFlameEffectNotify.cpp">
+      <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CSpawnFlameEffectNotify.h">
+      <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\OtherLifeFarm\AnimNotify\CStopNotify.cpp">
       <Filter>Source\OtherLifeFarm\AnimNotify</Filter>
     </ClCompile>

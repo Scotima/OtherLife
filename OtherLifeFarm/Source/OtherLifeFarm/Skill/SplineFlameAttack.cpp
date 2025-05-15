@@ -1,4 +1,4 @@
-#include "Skill/SplineFlameAttack.h"
+ï»¿#include "Skill/SplineFlameAttack.h"
 #include "Components/SplineComponent.h"
 #include "NiagaraSystem.h"
 #include "NiagaraComponent.h"
@@ -11,7 +11,7 @@
 
 ASplineFlameAttack::ASplineFlameAttack()
 {
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 
 	Spline = CreateDefaultSubobject<USplineComponent>(TEXT("Spline"));
 	RootComponent = Spline;
@@ -21,105 +21,52 @@ ASplineFlameAttack::ASplineFlameAttack()
 void ASplineFlameAttack::BeginPlay()
 {
 	Super::BeginPlay();
-
-	Spline->ClearSplinePoints();//Á÷Áø
-	FVector Start = GetActorLocation();
-	FVector Direction = GetActorForwardVector();
-
-	for (int32 i = 0; i < NumPoints; ++i)
+	if (!FlameEffect || !Spline)
 	{
-		Spline->AddSplinePoint(Start + Direction * (i * Spacing), ESplineCoordinateSpace::World);
+		UE_LOG(LogTemp, Warning, TEXT("ë‚˜ì´ì•„ê°€ë¼ ì´íŽ™íŠ¸ë‚˜ ìŠ¤í”Œë¼ì¸ì´ ì—†ìŒ"));
+		return;
 	}
 
-	CurrentSpawnIndex = 0;
-	GetWorldTimerManager().SetTimer(FlameSpawnTimerHandle, this, &ASplineFlameAttack::SpawnNextFlame, FlameSpawnInterval, true);
-	
+
+	NiagaraComp = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+		GetWorld(), FlameEffect, Spline->GetLocationAtDistanceAlongSpline(0.f, ESplineCoordinateSpace::World), FRotator::ZeroRotator,FVector(3.f, 3.f, 3.f)
+	);
+	NiagaraComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepWorldTransform);
+
+	Spline->ClearSplinePoints();
+
+	FVector StartLocation = GetActorLocation();
+	FVector Direction = GetActorForwardVector();
+
+	for (int32 i = 0; i < 10; ++i)
+	{
+		FVector PointLocation = StartLocation + Direction * (i * 200.f);
+		Spline->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World);
+	}
+	Spline->UpdateSpline();
 }
 
 void ASplineFlameAttack::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-}
+	if (!Spline || !NiagaraComp) return;
 
-void ASplineFlameAttack::SpawnFlameAlongSpline()
-{
-	if (!FlameEffect) return;
+	TravelDistance += DeltaTime * Speed;
 
-	for (int32 i = 0; i < NumPoints; ++i)
+	float SplineLength = Spline->GetSplineLength();
+
+	if (TravelDistance > SplineLength)
 	{
-		FVector Location = Spline->GetLocationAtSplinePoint(i, ESplineCoordinateSpace::World);
-		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), FlameEffect, Location);
-
-		//Å¸°ÝÆÇÁ¤
-		TArray<FHitResult> Hits;
-		FCollisionShape Shape = FCollisionShape::MakeSphere(50.f);
-		bool bHit = GetWorld()->SweepMultiByChannel(Hits, Location, Location + FVector(0.1f), FQuat::Identity, ECC_Pawn, Shape);
-
-		if (bHit)
-		{
-			for (auto& Hit : Hits)
-			{
-				AActor* HitActor = Hit.GetActor();
-				if (HitActor && HitActor != this)
-				{
-					UGameplayStatics::ApplyDamage(HitActor, Damage, GetInstigatorController(), this, DamageType);
-				}
-			}
-		}
-		
-	}
-}
-
-void ASplineFlameAttack::SpawnNextFlame()
-{
-	if (!FlameEffect || CurrentSpawnIndex >= NumPoints)
-	{
-		GetWorldTimerManager().ClearTimer(FlameSpawnTimerHandle);
-
-		UE_LOG(LogTemp, Warning, TEXT("ÆÄ±« ½Ãµµ!."));
-		Destroy();
+		NiagaraComp->Deactivate();
+		Destroy(); // ë˜ëŠ” SetLifeSpan
 		return;
 	}
 
-	FVector Location = Spline->GetLocationAtSplinePoint(CurrentSpawnIndex, ESplineCoordinateSpace::World);
-	UNiagaraComponent* NiagaraComp = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
-		GetWorld(),
-		FlameEffect,
-		Location,
-		FRotator::ZeroRotator,
-		FVector(1.f),
-		true, // auto Destroy
-		false,//autoActivate false ¼öµ¿¸ðµå
-		ENCPoolMethod::None,
-		false // precullcheck
-	);
+	FVector NewLocation = Spline->GetLocationAtDistanceAlongSpline(TravelDistance, ESplineCoordinateSpace::World);
+	NiagaraComp->SetWorldLocation(NewLocation);
 
-	if (NiagaraComp)
-	{
-		NiagaraComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepWorldTransform);
-	}
-
-	TArray<FHitResult> Hits;
-	FCollisionShape Shape = FCollisionShape::MakeSphere(50.f);
-
-	bool bHit = GetWorld()->SweepMultiByChannel(Hits, Location, Location + FVector(0.1f), FQuat::Identity, ECC_Pawn, Shape);
-
-
-	if (bHit)
-	{
-		for (auto& Hit : Hits)
-		{
-			AActor* HitActor = Hit.GetActor();
-
-			if (HitActor)
-			{
-				UGameplayStatics::ApplyDamage(HitActor, Damage, GetInstigatorController(), this, DamageType);
-
-			}
-		}
-	}
-
-	++CurrentSpawnIndex;
 }
+
+
 
